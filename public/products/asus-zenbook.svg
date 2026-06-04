@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <rect width="200" height="160" rx="8" fill="#f5f5f5"/>
+  <!-- Screen -->
+  <rect x="35" y="18" width="130" height="82" rx="5" fill="#1A237E"/>
+  <rect x="40" y="23" width="120" height="72" rx="2" fill="#2a2a3e"/>
+  <!-- Concentric circle design hint -->
+  <circle cx="100" cy="58" r="14" fill="none" stroke="#FFD54F" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="100" cy="58" r="10" fill="none" stroke="#FFD54F" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="100" cy="58" r="6" fill="none" stroke="#FFD54F" stroke-width="0.5" opacity="0.2"/>
+  <!-- Keyboard base -->
+  <path d="M25 100 L175 100 L180 108 L20 108 Z" fill="#1A237E"/>
+  <rect x="20" y="108" width="160" height="4" rx="1" fill="#283593"/>
+  <!-- Gold accent -->
+  <rect x="30" y="100" width="140" height="1.5" rx="1" fill="#FFD54F" opacity="0.5"/>
+  <!-- Label -->
+  <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1a1a2e">ASUS ZenBook</text>
+  <text x="100" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#1A237E">Blue · Gold</text>
+</svg>

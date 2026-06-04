@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <rect width="200" height="160" rx="8" fill="#f5f5f5"/>
+  <!-- Screen - thin bezel -->
+  <rect x="35" y="18" width="130" height="82" rx="6" fill="#C8B898"/>
+  <rect x="39" y="23" width="122" height="72" rx="3" fill="#1d1d1f"/>
+  <!-- Camera notch -->
+  <circle cx="100" cy="22" r="1.5" fill="#555"/>
+  <!-- Wedge-shaped keyboard base (tapered) -->
+  <path d="M25 100 L175 100 L182 110 L18 110 Z" fill="#D4C4A8"/>
+  <path d="M18 110 L182 110 L182 113 L18 113 Z" fill="#C0B098"/>
+  <!-- Trackpad -->
+  <rect x="82" y="101" width="36" height="6" rx="1" fill="#E0D4C0" opacity="0.5"/>
+  <!-- Label -->
+  <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1d1d1f">MacBook Air</text>
+  <text x="100" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#C8A868">Gold · Silver</text>
+</svg>

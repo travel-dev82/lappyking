@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <rect width="200" height="160" rx="8" fill="#f5f5f5"/>
+  <!-- Screen -->
+  <rect x="35" y="18" width="130" height="82" rx="4" fill="#1a1a2e"/>
+  <rect x="40" y="23" width="120" height="72" rx="2" fill="#2a2a3e"/>
+  <!-- Red TrackPoint dot -->
+  <circle cx="100" cy="58" r="3" fill="#E53935"/>
+  <!-- Keyboard base -->
+  <path d="M25 100 L175 100 L180 108 L20 108 Z" fill="#1a1a2e"/>
+  <rect x="20" y="108" width="160" height="4" rx="1" fill="#2a2a3e"/>
+  <!-- Hinge -->
+  <rect x="30" y="100" width="140" height="2" rx="1" fill="#E53935" opacity="0.6"/>
+  <!-- Label -->
+  <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1a1a2e">ThinkPad X1</text>
+  <text x="100" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#E53935">Carbon</text>
+</svg>

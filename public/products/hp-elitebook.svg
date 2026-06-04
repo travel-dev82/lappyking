@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <rect width="200" height="160" rx="8" fill="#f5f5f5"/>
+  <!-- Screen -->
+  <rect x="35" y="18" width="130" height="82" rx="4" fill="#B8B8C0"/>
+  <rect x="40" y="23" width="120" height="72" rx="2" fill="#1a1a2e"/>
+  <!-- HP logo hint -->
+  <rect x="93" y="52" width="14" height="12" rx="2" fill="none" stroke="#0096D6" stroke-width="1" opacity="0.5"/>
+  <!-- Keyboard base -->
+  <path d="M25 100 L175 100 L180 108 L20 108 Z" fill="#C0C0C8"/>
+  <rect x="20" y="108" width="160" height="4" rx="1" fill="#A8A8B0"/>
+  <!-- Blue accent strip -->
+  <line x1="85" y1="100" x2="115" y2="100" stroke="#0096D6" stroke-width="2" opacity="0.6"/>
+  <!-- Label -->
+  <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#1a1a2e">HP EliteBook</text>
+  <text x="100" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#0096D6">Enterprise</text>
+</svg>
