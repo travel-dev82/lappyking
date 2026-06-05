@@ -5,7 +5,7 @@ import { Laptop, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="mt-auto" style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+    <footer className="mt-auto" style={{ background: "#0d1b2a", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       {/* Chevron top decoration */}
       <div className="w-full h-[3px]" style={{ background: "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)" }} />
       

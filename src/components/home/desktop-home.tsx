@@ -39,7 +39,7 @@ export function DesktopHome() {
   return (
     <div className="hidden lg:block">
       {/* ============ HERO SECTION ============ */}
-      <section className="relative bg-[#0a0a0a] text-white overflow-hidden">
+      <section className="relative bg-white overflow-hidden">
         {/* Chevron decoration at top */}
         <div
           className="absolute top-0 left-0 w-full h-[4px]"
@@ -51,10 +51,10 @@ export function DesktopHome() {
 
         {/* Background grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
-              "linear-gradient(#0096D6 1px, transparent 1px), linear-gradient(90deg, #0096D6 1px, transparent 1px)",
+              "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -63,14 +63,14 @@ export function DesktopHome() {
           <div className="flex items-center gap-16">
             {/* Left: Text content */}
             <div className="flex-1 space-y-8">
-              <div className="inline-flex items-center gap-2 bg-[#0096D6]/10 border border-[#0096D6]/20 rounded-sm px-4 py-1.5">
+              <div className="inline-flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981]/20 rounded-sm px-4 py-1.5">
                 <Recycle className="w-3.5 h-3.5 text-[#10B981]" />
                 <span className="text-[11px] font-mono tracking-widest text-[#10B981] uppercase">
                   Sustainable Tech
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold font-mono leading-tight tracking-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold font-mono leading-tight tracking-tight text-[#0a0a0a]">
                 Premium
                 <br />
                 Refurbished
@@ -78,7 +78,7 @@ export function DesktopHome() {
                 <span className="text-[#0096D6]">Laptops</span>
               </h1>
 
-              <p className="text-lg text-[#a0a0a0] max-w-lg leading-relaxed">
+              <p className="text-lg text-[#6b7280] max-w-lg leading-relaxed">
                 Save up to <span className="text-[#0096D6] font-semibold font-mono">50%</span> on
                 top-brand laptops. Every device is quality tested, certified, and backed by our
                 warranty program.
@@ -93,7 +93,7 @@ export function DesktopHome() {
                 </Link>
                 <Link
                   href="/#about"
-                  className="text-sm font-mono tracking-wider text-[#a0a0a0] hover:text-[#0096D6] transition-colors flex items-center gap-1"
+                  className="text-sm font-mono tracking-wider text-[#6b7280] hover:text-[#0096D6] transition-colors flex items-center gap-1"
                 >
                   LEARN MORE
                   <ChevronRight className="w-3 h-3" />
@@ -105,7 +105,7 @@ export function DesktopHome() {
                 {["12-Month Warranty", "Quality Tested", "Free Shipping"].map((badge) => (
                   <div key={badge} className="flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#0096D6]" />
-                    <span className="text-[11px] font-mono tracking-wider text-[#666] uppercase">
+                    <span className="text-[11px] font-mono tracking-wider text-[#6b7280] uppercase">
                       {badge}
                     </span>
                   </div>
@@ -118,7 +118,7 @@ export function DesktopHome() {
               <div className="relative">
                 {/* Glow effect */}
                 <div className="absolute -inset-8 bg-[#0096D6]/5 rounded-full blur-3xl" />
-                <div className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0a0a0a] border border-white/5 rounded-sm p-8 w-[480px]">
+                <div className="relative bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-sm p-8 w-[480px]">
                   <img
                     src="/products/thinkpad-x1.svg"
                     alt="Featured laptop"
@@ -179,14 +179,14 @@ export function DesktopHome() {
       </section>
 
       {/* ============ WHY REFURBISHED ============ */}
-      <section id="about" className="bg-[#0a0a0a] text-white py-20">
+      <section id="about" className="bg-[#f8fafc] py-20">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section header */}
           <div className="text-center mb-14">
             <span className="text-[11px] font-mono tracking-widest text-[#0096D6] uppercase block mb-2">
               The ReBoot Advantage
             </span>
-            <h2 className="text-3xl font-bold font-mono tracking-tight">
+            <h2 className="text-3xl font-bold font-mono tracking-tight text-[#0a0a0a]">
               Why Refurbished?
             </h2>
           </div>
@@ -194,18 +194,18 @@ export function DesktopHome() {
           {/* Cards */}
           <div className="grid grid-cols-3 gap-8">
             {/* Eco-Friendly */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-8 text-center group hover:border-[#10B981]/30 transition-colors">
+            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#10B981] transition-colors">
               <div className="w-14 h-14 rounded-sm bg-[#10B981]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#10B981]/20 transition-colors">
                 <Recycle className="w-7 h-7 text-[#10B981]" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3">
+              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
                 Eco-Friendly
               </h3>
-              <p className="text-sm text-[#a0a0a0] leading-relaxed">
+              <p className="text-sm text-[#6b7280] leading-relaxed">
                 Every refurbished laptop prevents ~300kg of CO₂ emissions. Join the circular
                 economy and reduce e-waste while saving money.
               </p>
-              <div className="mt-5 pt-4 border-t border-white/[0.06]">
+              <div className="mt-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] font-mono tracking-widest text-[#10B981] uppercase">
                   ✦ 300kg CO₂ Saved Per Laptop
                 </span>
@@ -213,18 +213,18 @@ export function DesktopHome() {
             </div>
 
             {/* Quality Tested */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-8 text-center group hover:border-[#0096D6]/30 transition-colors">
+            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#0096D6] transition-colors">
               <div className="w-14 h-14 rounded-sm bg-[#0096D6]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#0096D6]/20 transition-colors">
                 <ShieldCheck className="w-7 h-7 text-[#0096D6]" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3">
+              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
                 Quality Tested
               </h3>
-              <p className="text-sm text-[#a0a0a0] leading-relaxed">
+              <p className="text-sm text-[#6b7280] leading-relaxed">
                 Every laptop undergoes a rigorous 52-point inspection process. We test
                 performance, display, keyboard, ports, and battery life.
               </p>
-              <div className="mt-5 pt-4 border-t border-white/[0.06]">
+              <div className="mt-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] font-mono tracking-widest text-[#0096D6] uppercase">
                   ✦ 52-Point Inspection
                 </span>
@@ -232,18 +232,18 @@ export function DesktopHome() {
             </div>
 
             {/* Warranty Backed */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-8 text-center group hover:border-[#F59E0B]/30 transition-colors">
+            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#F59E0B] transition-colors">
               <div className="w-14 h-14 rounded-sm bg-[#F59E0B]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F59E0B]/20 transition-colors">
                 <Award className="w-7 h-7 text-[#F59E0B]" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3">
+              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
                 Warranty Backed
               </h3>
-              <p className="text-sm text-[#a0a0a0] leading-relaxed">
+              <p className="text-sm text-[#6b7280] leading-relaxed">
                 Every purchase includes a minimum 3-month warranty, with up to 12-month coverage on
                 premium grade laptops. Shop with confidence.
               </p>
-              <div className="mt-5 pt-4 border-t border-white/[0.06]">
+              <div className="mt-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] font-mono tracking-widest text-[#F59E0B] uppercase">
                   ✦ Up To 12 Months Coverage
                 </span>
@@ -313,7 +313,7 @@ export function DesktopHome() {
       </section>
 
       {/* ============ CTA SECTION ============ */}
-      <section className="bg-[#0a0a0a] text-white py-20 relative overflow-hidden">
+      <section className="bg-[#0d1b2a] text-white py-20 relative overflow-hidden">
         {/* Chevron top */}
         <div
           className="absolute top-0 left-0 w-full h-[3px]"

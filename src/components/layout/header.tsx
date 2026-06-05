@@ -22,7 +22,7 @@ export function DesktopHeader() {
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
-    <header className="hidden lg:block sticky top-0 z-50" style={{ background: "rgba(10,10,10,0.92)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+    <header className="hidden lg:block sticky top-0 z-50" style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid #e5e7eb" }}>
       <div className="relative">
         <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)" }} />
       </div>
@@ -31,9 +31,9 @@ export function DesktopHeader() {
           <Link href="/" className="flex items-center gap-2 group">
             <Laptop className="w-6 h-6 text-[#0096D6]" />
             <span className="text-xl font-semibold tracking-wider font-mono">
-              <span className="text-white">Re</span>
+              <span className="text-[#0a0a0a]">Re</span>
               <span className="text-[#0096D6]">Boot</span>
-              <span className="text-[#a0a0a0] ml-1">Tech</span>
+              <span className="text-[#9ca3af] ml-1">Tech</span>
             </span>
           </Link>
           <nav className="flex items-center gap-1">
@@ -43,8 +43,8 @@ export function DesktopHeader() {
                 href={link.href}
                 className={`px-4 py-2 text-sm tracking-wider font-medium rounded transition-colors ${
                   pathname === link.href
-                    ? "text-[#0096D6] bg-white/5"
-                    : "text-[#d0d0d0] hover:text-[#0096D6] hover:bg-white/5"
+                    ? "text-[#0096D6] bg-[#0096D6]/5"
+                    : "text-[#4b5563] hover:text-[#0096D6] hover:bg-gray-50"
                 }`}
               >
                 {link.label}
@@ -53,7 +53,7 @@ export function DesktopHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative p-2 text-[#d0d0d0] hover:text-[#0096D6] transition-colors">
+          <Link href="/cart" className="relative p-2 text-[#4b5563] hover:text-[#0096D6] transition-colors">
             <ShoppingCart className="w-5 h-5" />
             {totalItems > 0 && (
               <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-[10px] bg-[#0096D6] text-white border-0 rounded-full">
@@ -65,7 +65,7 @@ export function DesktopHeader() {
             <div className="flex items-center gap-3">
               <Link
                 href={`/dashboard/${user?.role}`}
-                className="flex items-center gap-2 px-3 py-2 rounded text-sm text-[#d0d0d0] hover:text-[#0096D6] transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded text-sm text-[#374151] hover:text-[#0096D6] transition-colors"
               >
                 <div className="w-7 h-7 rounded-sm bg-[#0096D6] flex items-center justify-center text-white text-xs font-mono font-bold">
                   {user?.avatar}
@@ -76,7 +76,7 @@ export function DesktopHeader() {
                 onClick={logout}
                 variant="ghost"
                 size="sm"
-                className="text-[#a0a0a0] hover:text-white text-xs"
+                className="text-[#6b7280] hover:text-[#0a0a0a] text-xs"
               >
                 Logout
               </Button>
@@ -105,7 +105,7 @@ export function MobileHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="lg:hidden sticky top-0 z-50" style={{ background: "rgba(10,10,10,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+    <header className="lg:hidden sticky top-0 z-50" style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid #e5e7eb" }}>
       <div className="relative">
         <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 8px, transparent 8px, transparent 16px)" }} />
       </div>
@@ -113,12 +113,12 @@ export function MobileHeader() {
         <Link href="/" className="flex items-center gap-2">
           <Laptop className="w-5 h-5 text-[#0096D6]" />
           <span className="text-lg font-semibold tracking-wider font-mono">
-            <span className="text-white">Re</span>
+            <span className="text-[#0a0a0a]">Re</span>
             <span className="text-[#0096D6]">Boot</span>
           </span>
         </Link>
         <div className="flex items-center gap-2">
-          <Link href="/cart" className="relative p-2 text-[#d0d0d0]">
+          <Link href="/cart" className="relative p-2 text-[#4b5563]">
             <ShoppingCart className="w-5 h-5" />
             {totalItems > 0 && (
               <Badge className="absolute -top-1 -right-1 w-4 h-4 p-0 flex items-center justify-center text-[9px] bg-[#0096D6] text-white border-0 rounded-full">
@@ -128,20 +128,20 @@ export function MobileHeader() {
           </Link>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Button variant="ghost" size="icon" className="text-[#374151] hover:bg-gray-100">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] bg-[#0a0a0a] border-l border-white/10 p-0">
+            <SheetContent side="right" className="w-[280px] bg-white border-l border-gray-200 p-0">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <SheetDescription className="sr-only">Site navigation and user menu</SheetDescription>
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between px-4 h-[56px] border-b border-white/10">
+                <div className="flex items-center justify-between px-4 h-[56px] border-b border-gray-100">
                   <span className="text-lg font-semibold tracking-wider font-mono">
-                    <span className="text-white">Re</span>
+                    <span className="text-[#0a0a0a]">Re</span>
                     <span className="text-[#0096D6]">Boot</span>
                   </span>
-                  <Button variant="ghost" size="icon" className="text-white" onClick={() => setOpen(false)}>
+                  <Button variant="ghost" size="icon" className="text-[#374151]" onClick={() => setOpen(false)}>
                     <X className="w-5 h-5" />
                   </Button>
                 </div>
@@ -153,34 +153,34 @@ export function MobileHeader() {
                       onClick={() => setOpen(false)}
                       className={`flex items-center px-6 py-3 text-sm tracking-wider font-medium transition-colors ${
                         pathname === link.href
-                          ? "text-[#0096D6] bg-white/5 border-l-2 border-[#0096D6]"
-                          : "text-[#d0d0d0] hover:text-[#0096D6] hover:bg-white/5"
+                          ? "text-[#0096D6] bg-[#0096D6]/5 border-l-2 border-[#0096D6]"
+                          : "text-[#374151] hover:text-[#0096D6] hover:bg-gray-50"
                       }`}
                     >
                       {link.label}
                     </Link>
                   ))}
                 </nav>
-                <div className="border-t border-white/10 p-4 space-y-3">
+                <div className="border-t border-gray-100 p-4 space-y-3">
                   {isAuthenticated ? (
                     <>
                       <Link
                         href={`/dashboard/${user?.role}`}
                         onClick={() => setOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-sm bg-white/5 text-[#d0d0d0] hover:text-[#0096D6]"
+                        className="flex items-center gap-3 px-4 py-3 rounded-sm bg-gray-50 text-[#374151] hover:text-[#0096D6]"
                       >
                         <div className="w-8 h-8 rounded-sm bg-[#0096D6] flex items-center justify-center text-white text-xs font-mono font-bold">
                           {user?.avatar}
                         </div>
                         <div>
                           <div className="text-sm font-medium">{user?.name}</div>
-                          <div className="text-xs text-[#a0a0a0]">{user?.role}</div>
+                          <div className="text-xs text-[#6b7280]">{user?.role}</div>
                         </div>
                       </Link>
                       <Button
                         onClick={() => { logout(); setOpen(false); }}
                         variant="ghost"
-                        className="w-full text-[#a0a0a0] hover:text-white justify-start"
+                        className="w-full text-[#6b7280] hover:text-[#0a0a0a] justify-start"
                       >
                         Logout
                       </Button>

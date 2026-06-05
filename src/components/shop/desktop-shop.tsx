@@ -211,7 +211,7 @@ export function DesktopShop() {
                         onClick={() => setSelectedCondition(cond)}
                         className={`flex items-center gap-2 w-full text-left px-3 py-1.5 rounded-sm text-xs font-mono transition-colors ${
                           selectedCondition === cond
-                            ? "bg-[#0a0a0a] text-white font-semibold"
+                            ? "bg-[#0096D6] text-white font-semibold"
                             : "text-gray-600 hover:bg-gray-50 hover:text-[#0a0a0a]"
                         }`}
                       >

@@ -109,7 +109,7 @@ export function DesktopCart() {
           {/* Right: Order Summary */}
           <div>
             <div className="rounded-sm border border-[#e5e5e5] bg-[#fafafa] sticky top-[84px]">
-              <div className="px-6 py-4 border-b border-[#e5e5e5] bg-[#0a0a0a] rounded-t-sm">
+              <div className="px-6 py-4 border-b border-[#e5e5e5] bg-[#0096D6] rounded-t-sm">
                 <h2 className="text-base font-mono font-bold text-white tracking-wider uppercase">
                   Order Summary
                 </h2>

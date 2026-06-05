@@ -45,8 +45,9 @@
   --color-electric-dark: #0078AE;
   --color-eco: #10B981;
   --color-eco-dark: #059669;
-  --color-navy: #0d1b2a;
-  --color-navy-light: #1a1a2e;
+  --color-slate: #1e293b;
+  --color-slate-light: #f8fafc;
+  --color-closing: #0d1b2a;
 }
 
 :root {
@@ -127,7 +128,7 @@
   }
 }
 
-/* Chevron decoration utility */
+/* Chevron decoration utility - electric blue on white */
 .chevron-decoration::before {
   content: '';
   position: absolute;
@@ -165,12 +166,12 @@
 }
 .product-card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* Grade badge colors */
 .grade-a-plus { background: #10B981; color: white; }
-.grade-a { background: #3B82F6; color: white; }
+.grade-a { background: #0096D6; color: white; }
 .grade-b-plus { background: #F59E0B; color: white; }
 .grade-b { background: #EF4444; color: white; }
 

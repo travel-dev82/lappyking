@@ -40,7 +40,7 @@ export function MobileHome() {
   return (
     <div className="lg:hidden">
       {/* ============ HERO SECTION ============ */}
-      <section className="relative bg-[#0a0a0a] text-white overflow-hidden">
+      <section className="relative bg-white overflow-hidden">
         {/* Chevron top */}
         <div
           className="absolute top-0 left-0 w-full h-[3px]"
@@ -52,7 +52,7 @@ export function MobileHome() {
 
         <div className="relative px-4 py-12">
           {/* Eco badge */}
-          <div className="inline-flex items-center gap-1.5 bg-[#0096D6]/10 border border-[#0096D6]/20 rounded-sm px-3 py-1 mb-5">
+          <div className="inline-flex items-center gap-1.5 bg-[#10B981]/10 border border-[#10B981]/20 rounded-sm px-3 py-1 mb-5">
             <Recycle className="w-3 h-3 text-[#10B981]" />
             <span className="text-[9px] font-mono tracking-widest text-[#10B981] uppercase">
               Sustainable Tech
@@ -60,7 +60,7 @@ export function MobileHome() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-3xl font-bold font-mono leading-tight tracking-tight mb-4">
+          <h1 className="text-3xl font-bold font-mono leading-tight tracking-tight mb-4 text-[#0a0a0a]">
             Premium
             <br />
             Refurbished
@@ -69,7 +69,7 @@ export function MobileHome() {
           </h1>
 
           {/* Subtext */}
-          <p className="text-sm text-[#a0a0a0] leading-relaxed mb-6 max-w-xs">
+          <p className="text-sm text-[#6b7280] leading-relaxed mb-6 max-w-xs">
             Save up to{" "}
             <span className="text-[#0096D6] font-semibold font-mono">50%</span> on top-brand
             laptops. Quality tested, certified &amp; warranty backed.
@@ -85,7 +85,7 @@ export function MobileHome() {
             </Link>
             <Link
               href="/#about"
-              className="text-xs font-mono tracking-wider text-[#a0a0a0] hover:text-[#0096D6] transition-colors flex items-center gap-1"
+              className="text-xs font-mono tracking-wider text-[#6b7280] hover:text-[#0096D6] transition-colors flex items-center gap-1"
             >
               LEARN MORE
               <ChevronRight className="w-3 h-3" />
@@ -93,7 +93,7 @@ export function MobileHome() {
           </div>
 
           {/* Featured laptop image */}
-          <div className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0a0a0a] border border-white/5 rounded-sm p-5">
+          <div className="relative bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-sm p-5">
             <img
               src="/products/thinkpad-x1.svg"
               alt="Featured laptop"
@@ -111,7 +111,7 @@ export function MobileHome() {
             {["Warranty", "Tested", "Free Ship"].map((badge) => (
               <div key={badge} className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#0096D6]" />
-                <span className="text-[9px] font-mono tracking-wider text-[#666] uppercase">
+                <span className="text-[9px] font-mono tracking-wider text-[#6b7280] uppercase">
                   {badge}
                 </span>
               </div>
@@ -165,28 +165,28 @@ export function MobileHome() {
       </section>
 
       {/* ============ WHY REFURBISHED (STACKED) ============ */}
-      <section id="about" className="bg-[#0a0a0a] text-white py-10">
+      <section id="about" className="bg-[#f8fafc] py-10">
         <div className="px-4">
           {/* Section header */}
           <div className="text-center mb-8">
             <span className="text-[9px] font-mono tracking-widest text-[#0096D6] uppercase block mb-1">
               The ReBoot Advantage
             </span>
-            <h2 className="text-xl font-bold font-mono tracking-tight">Why Refurbished?</h2>
+            <h2 className="text-xl font-bold font-mono tracking-tight text-[#0a0a0a]">Why Refurbished?</h2>
           </div>
 
           {/* Stacked cards */}
           <div className="space-y-4">
             {/* Eco-Friendly */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-5 flex items-start gap-4">
+            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
               <div className="w-11 h-11 rounded-sm bg-[#10B981]/10 flex items-center justify-center shrink-0">
                 <Recycle className="w-5 h-5 text-[#10B981]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1">
+                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
                   Eco-Friendly
                 </h3>
-                <p className="text-xs text-[#a0a0a0] leading-relaxed">
+                <p className="text-xs text-[#6b7280] leading-relaxed">
                   Every laptop prevents ~300kg of CO₂ emissions. Join the circular economy.
                 </p>
                 <span className="text-[9px] font-mono tracking-widest text-[#10B981] uppercase mt-2 block">
@@ -196,15 +196,15 @@ export function MobileHome() {
             </div>
 
             {/* Quality Tested */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-5 flex items-start gap-4">
+            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
               <div className="w-11 h-11 rounded-sm bg-[#0096D6]/10 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5 text-[#0096D6]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1">
+                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
                   Quality Tested
                 </h3>
-                <p className="text-xs text-[#a0a0a0] leading-relaxed">
+                <p className="text-xs text-[#6b7280] leading-relaxed">
                   Rigorous 52-point inspection. Performance, display, keyboard &amp; battery all
                   tested.
                 </p>
@@ -215,15 +215,15 @@ export function MobileHome() {
             </div>
 
             {/* Warranty Backed */}
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-sm p-5 flex items-start gap-4">
+            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
               <div className="w-11 h-11 rounded-sm bg-[#F59E0B]/10 flex items-center justify-center shrink-0">
                 <Award className="w-5 h-5 text-[#F59E0B]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1">
+                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
                   Warranty Backed
                 </h3>
-                <p className="text-xs text-[#a0a0a0] leading-relaxed">
+                <p className="text-xs text-[#6b7280] leading-relaxed">
                   3–12 month warranty on every laptop. Shop with complete confidence.
                 </p>
                 <span className="text-[9px] font-mono tracking-widest text-[#F59E0B] uppercase mt-2 block">
@@ -295,7 +295,7 @@ export function MobileHome() {
       </section>
 
       {/* ============ CTA SECTION ============ */}
-      <section className="bg-[#0a0a0a] text-white py-10 relative overflow-hidden">
+      <section className="bg-[#0d1b2a] text-white py-10 relative overflow-hidden">
         {/* Chevron top */}
         <div
           className="absolute top-0 left-0 w-full h-[3px]"

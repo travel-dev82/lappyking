@@ -49,7 +49,7 @@ export function ProductCardShop({ product }: { product: Product }) {
 
           {/* Discount Badge */}
           {product.discount > 0 && (
-            <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-sm bg-[#0a0a0a] text-white text-[11px] font-mono font-bold tracking-wider">
+            <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-sm bg-[#EF4444] text-white text-[11px] font-mono font-bold tracking-wider">
               -{product.discount}%
             </div>
           )}

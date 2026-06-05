@@ -235,7 +235,7 @@ export function MobileShop() {
                         onClick={() => setSelectedCondition(cond)}
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-mono transition-colors ${
                           selectedCondition === cond
-                            ? "bg-[#0a0a0a] text-white font-semibold"
+                            ? "bg-[#0096D6] text-white font-semibold"
                             : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                         }`}
                       >
