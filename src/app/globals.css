@@ -41,24 +41,24 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-electric: #0096D6;
-  --color-electric-dark: #0078AE;
+  --color-electric: #0EA5E9;
+  --color-electric-dark: #0284C7;
   --color-eco: #10B981;
   --color-eco-dark: #059669;
-  --color-slate: #1e293b;
-  --color-slate-light: #f8fafc;
-  --color-closing: #0d1b2a;
+  --color-warm: #F59E0B;
+  --color-slate: #1E293B;
+  --color-slate-light: #F8FAFC;
 }
 
 :root {
-  --radius: 0.125rem;
+  --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.52 0.18 240);
+  --primary: oklch(0.6 0.18 230);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -69,20 +69,20 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.52 0.18 240);
-  --chart-1: oklch(0.52 0.18 240);
+  --ring: oklch(0.6 0.18 230);
+  --chart-1: oklch(0.6 0.18 230);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.52 0.18 240);
+  --sidebar-primary: oklch(0.6 0.18 230);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.52 0.18 240);
+  --sidebar-ring: oklch(0.6 0.18 230);
 }
 
 .dark {
@@ -128,23 +128,6 @@
   }
 }
 
-/* Chevron decoration utility - electric blue on white */
-.chevron-decoration::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    #0096D6 0px,
-    #0096D6 8px,
-    transparent 8px,
-    transparent 16px
-  );
-}
-
 /* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -153,25 +136,25 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #94a3b8;
 }
 
-/* Product card hover effect */
+/* Product card hover effect - soft shadow lift */
 .product-card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .product-card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(14, 165, 233, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
 }
 
 /* Grade badge colors */
 .grade-a-plus { background: #10B981; color: white; }
-.grade-a { background: #0096D6; color: white; }
+.grade-a { background: #0EA5E9; color: white; }
 .grade-b-plus { background: #F59E0B; color: white; }
 .grade-b { background: #EF4444; color: white; }
 
@@ -182,4 +165,13 @@
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Soft gradient animation for hero */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

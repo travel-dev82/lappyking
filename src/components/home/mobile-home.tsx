@@ -4,7 +4,23 @@ import Link from "next/link";
 import { products } from "@/data/products";
 import { ProductCard } from "./product-card";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Recycle, ShieldCheck, Award, Quote } from "lucide-react";
+import {
+  Leaf,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle,
+  Truck,
+  Briefcase,
+  Sparkles,
+  Zap,
+  Wallet,
+  Recycle,
+  Award,
+  Quote,
+  Star,
+  Search,
+  ClipboardCheck,
+} from "lucide-react";
 
 const featuredProducts = products.slice(0, 4);
 
@@ -36,290 +52,373 @@ const stats = [
   { value: "52", label: "Point Check" },
 ];
 
+const categories = [
+  {
+    title: "Business",
+    subtitle: "Work-ready",
+    icon: Briefcase,
+    iconColor: "text-slate-600",
+    bgColor: "bg-slate-50",
+  },
+  {
+    title: "Premium",
+    subtitle: "Top-tier",
+    icon: Sparkles,
+    iconColor: "text-sky-500",
+    bgColor: "bg-sky-50",
+  },
+  {
+    title: "Ultrabook",
+    subtitle: "Lightweight",
+    icon: Zap,
+    iconColor: "text-amber-500",
+    bgColor: "bg-amber-50",
+  },
+  {
+    title: "Budget",
+    subtitle: "Great value",
+    icon: Wallet,
+    iconColor: "text-emerald-500",
+    bgColor: "bg-emerald-50",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Browse & Select",
+    description: "Explore our curated collection of premium refurbished laptops from top brands.",
+    icon: Search,
+    numBg: "bg-sky-100",
+    numText: "text-sky-600",
+  },
+  {
+    number: "02",
+    title: "Quality Inspection",
+    description: "Every laptop undergoes a rigorous 52-point inspection to ensure peak performance.",
+    icon: ClipboardCheck,
+    numBg: "bg-emerald-100",
+    numText: "text-emerald-600",
+  },
+  {
+    number: "03",
+    title: "Delivered to You",
+    description: "Free shipping with secure packaging. Your laptop arrives ready to use.",
+    icon: Truck,
+    numBg: "bg-amber-100",
+    numText: "text-amber-600",
+  },
+];
+
 export function MobileHome() {
   return (
     <div className="lg:hidden">
-      {/* ============ HERO SECTION ============ */}
-      <section className="relative bg-white overflow-hidden">
-        {/* Chevron top */}
-        <div
-          className="absolute top-0 left-0 w-full h-[3px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 8px, transparent 8px, transparent 16px)",
-          }}
-        />
-
-        <div className="relative px-4 py-12">
-          {/* Eco badge */}
-          <div className="inline-flex items-center gap-1.5 bg-[#10B981]/10 border border-[#10B981]/20 rounded-sm px-3 py-1 mb-5">
-            <Recycle className="w-3 h-3 text-[#10B981]" />
-            <span className="text-[9px] font-mono tracking-widest text-[#10B981] uppercase">
-              Sustainable Tech
-            </span>
+      {/* ============ 1. HERO SECTION ============ */}
+      <section className="bg-white">
+        <div className="px-4 py-10">
+          {/* Pill badge */}
+          <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-medium mb-4">
+            <Leaf className="w-3 h-3" />
+            Sustainable Tech
           </div>
 
           {/* Heading */}
-          <h1 className="text-3xl font-bold font-mono leading-tight tracking-tight mb-4 text-[#0a0a0a]">
-            Premium
+          <h1 className="text-3xl font-bold tracking-tight text-slate-800 leading-tight mb-4">
+            Give Tech a
             <br />
-            Refurbished
-            <br />
-            <span className="text-[#0096D6]">Laptops</span>
+            <span className="text-sky-500">Second Life</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-sm text-[#6b7280] leading-relaxed mb-6 max-w-xs">
-            Save up to{" "}
-            <span className="text-[#0096D6] font-semibold font-mono">50%</span> on top-brand
-            laptops. Quality tested, certified &amp; warranty backed.
+          <p className="text-sm text-slate-500 leading-relaxed mb-6 max-w-xs">
+            Save up to <strong>50%</strong> on premium laptops. Quality tested &amp; warranty backed.
           </p>
 
           {/* CTA buttons */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex gap-3 mb-6">
             <Link href="/shop">
-              <Button className="bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono text-xs tracking-wider rounded-sm h-10 px-5 transition-colors">
-                SHOP NOW
-                <ChevronRight className="w-3.5 h-3.5 ml-1.5" />
+              <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-5 text-xs">
+                Shop Now
+                <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
               </Button>
             </Link>
-            <Link
-              href="/#about"
-              className="text-xs font-mono tracking-wider text-[#6b7280] hover:text-[#0096D6] transition-colors flex items-center gap-1"
-            >
-              LEARN MORE
-              <ChevronRight className="w-3 h-3" />
+            <Link href="/#why-refurbished">
+              <Button
+                variant="outline"
+                className="border border-slate-200 text-slate-600 font-medium rounded-xl h-10 px-4 text-xs"
+              >
+                Learn More
+              </Button>
             </Link>
           </div>
 
-          {/* Featured laptop image */}
-          <div className="relative bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-sm p-5">
+          {/* Laptop image with price tag */}
+          <div className="relative bg-white rounded-xl shadow-md p-4 border border-slate-100">
             <img
               src="/products/thinkpad-x1.svg"
-              alt="Featured laptop"
+              alt="Featured refurbished laptop"
               className="w-full h-auto"
             />
-            {/* Price tag */}
-            <div className="absolute bottom-3 right-3 bg-[#0096D6] text-white px-3 py-1.5 rounded-sm">
-              <span className="text-[8px] font-mono tracking-widest block">FROM</span>
-              <span className="text-lg font-bold font-mono">$279</span>
+            <div className="absolute bottom-2 right-2 bg-sky-500 text-white px-3 py-1.5 rounded-lg shadow-sm">
+              <span className="text-[8px] block">FROM</span>
+              <span className="text-base font-bold font-mono">$279</span>
             </div>
           </div>
 
           {/* Trust badges */}
-          <div className="flex items-center gap-4 mt-6">
-            {["Warranty", "Tested", "Free Ship"].map((badge) => (
-              <div key={badge} className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0096D6]" />
-                <span className="text-[9px] font-mono tracking-wider text-[#6b7280] uppercase">
-                  {badge}
-                </span>
-              </div>
-            ))}
+          <div className="flex gap-3 mt-5">
+            <div className="flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
+              <span className="text-[10px] text-slate-500">Warranty</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
+              <span className="text-[10px] text-slate-500">Tested</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Truck className="w-3.5 h-3.5 text-amber-500" />
+              <span className="text-[10px] text-slate-500">Free Ship</span>
+            </div>
           </div>
         </div>
-
-        {/* Bottom chevron */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-[2px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 8px, transparent 8px, transparent 16px)",
-          }}
-        />
       </section>
 
-      {/* ============ FEATURED PRODUCTS (HORIZONTAL SCROLL) ============ */}
-      <section className="bg-white py-10">
-        <div className="px-4">
-          {/* Section header */}
-          <div className="flex items-end justify-between mb-5">
-            <div>
-              <span className="text-[9px] font-mono tracking-widest text-[#0096D6] uppercase block mb-1">
-                Featured
-              </span>
-              <h2 className="text-xl font-bold font-mono text-[#0a0a0a] tracking-tight">
-                Top Picks
-              </h2>
-            </div>
-            <Link href="/shop">
-              <Button
-                variant="outline"
-                className="font-mono text-[10px] tracking-wider rounded-sm border-[#e5e5e5] text-[#666] hover:border-[#0096D6] hover:text-[#0096D6] h-8 transition-colors"
-              >
-                VIEW ALL
-                <ChevronRight className="w-3 h-3 ml-1" />
-              </Button>
+      {/* ============ 2. CATEGORY CARDS ============ */}
+      <section className="bg-white py-8">
+        {/* Section header */}
+        <div className="px-4 mb-5">
+          <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
+            Browse
+          </span>
+          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+            Find Your Laptop
+          </h2>
+        </div>
+
+        {/* Horizontal scroll */}
+        <div className="flex gap-3 overflow-x-auto px-4 pb-2 snap-x snap-mandatory scrollbar-hide">
+          {categories.map((cat) => (
+            <Link key={cat.title} href="/shop" className="min-w-[140px] snap-start">
+              <div className={`rounded-xl p-4 text-center ${cat.bgColor}`}>
+                <cat.icon className={`w-8 h-8 mx-auto mb-2 ${cat.iconColor}`} />
+                <div className="text-xs font-semibold text-slate-800">{cat.title}</div>
+                <div className="text-[10px] text-slate-500 mt-0.5">{cat.subtitle}</div>
+              </div>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 3. FEATURED PRODUCTS (HORIZONTAL SCROLL) ============ */}
+      <section className="bg-slate-50 py-8">
+        {/* Section header */}
+        <div className="px-4 flex justify-between items-end mb-4">
+          <div>
+            <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
+              Featured
+            </span>
+            <h2 className="text-lg font-bold text-slate-800 tracking-tight">Top Picks</h2>
           </div>
+          <Link
+            href="/shop"
+            className="text-sky-500 text-xs font-medium hover:text-sky-600 transition-colors"
+          >
+            View All
+          </Link>
         </div>
 
         {/* Horizontal scroll */}
         <div className="flex gap-4 overflow-x-auto px-4 pb-2 snap-x snap-mandatory scrollbar-hide">
           {featuredProducts.map((product) => (
-            <div key={product.id} className="min-w-[260px] max-w-[260px] snap-start">
+            <div key={product.id} className="min-w-[240px] max-w-[240px] snap-start">
               <ProductCard product={product} />
             </div>
           ))}
         </div>
       </section>
 
-      {/* ============ WHY REFURBISHED (STACKED) ============ */}
-      <section id="about" className="bg-[#f8fafc] py-10">
-        <div className="px-4">
-          {/* Section header */}
-          <div className="text-center mb-8">
-            <span className="text-[9px] font-mono tracking-widest text-[#0096D6] uppercase block mb-1">
-              The ReBoot Advantage
-            </span>
-            <h2 className="text-xl font-bold font-mono tracking-tight text-[#0a0a0a]">Why Refurbished?</h2>
-          </div>
-
-          {/* Stacked cards */}
-          <div className="space-y-4">
-            {/* Eco-Friendly */}
-            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
-              <div className="w-11 h-11 rounded-sm bg-[#10B981]/10 flex items-center justify-center shrink-0">
-                <Recycle className="w-5 h-5 text-[#10B981]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
-                  Eco-Friendly
-                </h3>
-                <p className="text-xs text-[#6b7280] leading-relaxed">
-                  Every laptop prevents ~300kg of CO₂ emissions. Join the circular economy.
-                </p>
-                <span className="text-[9px] font-mono tracking-widest text-[#10B981] uppercase mt-2 block">
-                  ✦ 300kg CO₂ Saved Per Laptop
-                </span>
-              </div>
-            </div>
-
-            {/* Quality Tested */}
-            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
-              <div className="w-11 h-11 rounded-sm bg-[#0096D6]/10 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5 text-[#0096D6]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
-                  Quality Tested
-                </h3>
-                <p className="text-xs text-[#6b7280] leading-relaxed">
-                  Rigorous 52-point inspection. Performance, display, keyboard &amp; battery all
-                  tested.
-                </p>
-                <span className="text-[9px] font-mono tracking-widest text-[#0096D6] uppercase mt-2 block">
-                  ✦ 52-Point Inspection
-                </span>
-              </div>
-            </div>
-
-            {/* Warranty Backed */}
-            <div className="bg-white border border-gray-100 rounded-sm p-5 flex items-start gap-4">
-              <div className="w-11 h-11 rounded-sm bg-[#F59E0B]/10 flex items-center justify-center shrink-0">
-                <Award className="w-5 h-5 text-[#F59E0B]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold font-mono tracking-wide mb-1 text-[#0a0a0a]">
-                  Warranty Backed
-                </h3>
-                <p className="text-xs text-[#6b7280] leading-relaxed">
-                  3–12 month warranty on every laptop. Shop with complete confidence.
-                </p>
-                <span className="text-[9px] font-mono tracking-widest text-[#F59E0B] uppercase mt-2 block">
-                  ✦ Up To 12 Months Coverage
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ STATS (2x2 GRID) ============ */}
-      <section className="bg-white border-y border-gray-100">
-        <div className="px-4 py-10">
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold font-mono text-[#0a0a0a] tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="text-[10px] font-mono tracking-widest text-[#a0a0a0] uppercase mt-1">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ TESTIMONIALS ============ */}
-      <section className="bg-gray-50 py-10">
-        <div className="px-4">
-          {/* Section header */}
-          <div className="text-center mb-8">
-            <span className="text-[9px] font-mono tracking-widest text-[#0096D6] uppercase block mb-1">
-              Reviews
-            </span>
-            <h2 className="text-xl font-bold font-mono text-[#0a0a0a] tracking-tight">
-              What Customers Say
-            </h2>
-          </div>
-
-          {/* Testimonial cards (simpler stacked) */}
-          <div className="space-y-4">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.name}
-                className="bg-white border border-gray-100 rounded-sm p-5 relative"
-              >
-                <Quote className="w-5 h-5 text-[#0096D6]/15 absolute top-4 right-4" />
-                <p className="text-xs text-[#555] leading-relaxed mb-4 pr-6">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-2.5 pt-3 border-t border-gray-100">
-                  <div className="w-8 h-8 rounded-sm bg-[#0096D6] flex items-center justify-center text-white text-[10px] font-mono font-bold">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-[#0a0a0a]">{testimonial.name}</div>
-                    <div className="text-[9px] font-mono tracking-wider text-[#a0a0a0] uppercase">
-                      {testimonial.role}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ CTA SECTION ============ */}
-      <section className="bg-[#0d1b2a] text-white py-10 relative overflow-hidden">
-        {/* Chevron top */}
-        <div
-          className="absolute top-0 left-0 w-full h-[3px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 8px, transparent 8px, transparent 16px)",
-          }}
-        />
-
-        <div className="relative px-4 text-center">
-          <span className="text-[9px] font-mono tracking-widest text-[#10B981] uppercase block mb-2">
-            Ready To Save?
+      {/* ============ 4. WHY REFURBISHED (STACKED) ============ */}
+      <section id="why-refurbished" className="bg-white py-8">
+        {/* Section header */}
+        <div className="px-4 text-center mb-6">
+          <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
+            The ReBoot Advantage
           </span>
-          <h2 className="text-xl font-bold font-mono tracking-tight mb-3">
+          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+            Why Refurbished?
+          </h2>
+        </div>
+
+        {/* Stacked cards */}
+        <div className="space-y-3 px-4">
+          {/* Eco-Friendly */}
+          <div className="rounded-xl p-4 flex items-start gap-3 bg-emerald-50">
+            <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0">
+              <Recycle className="w-5 h-5 text-emerald-500" />
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-800">Eco-Friendly</h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Every laptop prevents ~300kg of CO₂ emissions. Join the circular economy.
+              </p>
+              <span className="text-[10px] font-medium text-emerald-600 mt-1 block">
+                300kg CO₂ Saved Per Laptop
+              </span>
+            </div>
+          </div>
+
+          {/* Quality Tested */}
+          <div className="rounded-xl p-4 flex items-start gap-3 bg-sky-50">
+            <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5 text-sky-500" />
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-800">Quality Tested</h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Rigorous 52-point inspection. Performance, display, keyboard &amp; battery all tested.
+              </p>
+              <span className="text-[10px] font-medium text-sky-600 mt-1 block">
+                52-Point Inspection
+              </span>
+            </div>
+          </div>
+
+          {/* Warranty Backed */}
+          <div className="rounded-xl p-4 flex items-start gap-3 bg-amber-50">
+            <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0">
+              <Award className="w-5 h-5 text-amber-500" />
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-800">Warranty Backed</h3>
+              <p className="text-xs text-slate-500 mt-0.5">
+                3–12 month warranty on every laptop. Shop with complete confidence.
+              </p>
+              <span className="text-[10px] font-medium text-amber-600 mt-1 block">
+                Up To 12 Months Coverage
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 5. STATS (2x2 GRID) ============ */}
+      <section className="bg-sky-50 py-8">
+        <div className="px-4 grid grid-cols-2 gap-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-2xl font-bold text-slate-800">{stat.value}</div>
+              <div className="text-[10px] text-slate-500 mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 6. HOW IT WORKS ============ */}
+      <section className="bg-white py-8">
+        {/* Section header */}
+        <div className="px-4 text-center mb-6">
+          <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
+            Simple Process
+          </span>
+          <h2 className="text-lg font-bold text-slate-800 tracking-tight">How It Works</h2>
+        </div>
+
+        {/* Steps */}
+        <div className="space-y-4 px-4">
+          {steps.map((step) => (
+            <div key={step.number} className="flex items-start gap-3 p-4 rounded-xl bg-slate-50">
+              <div
+                className={`w-8 h-8 rounded-full ${step.numBg} ${step.numText} font-bold text-xs flex items-center justify-center shrink-0`}
+              >
+                {step.number}
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800">{step.title}</h3>
+                <p className="text-xs text-slate-500 mt-0.5">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 7. TESTIMONIALS ============ */}
+      <section className="bg-slate-50 py-8">
+        {/* Section header */}
+        <div className="px-4 text-center mb-6">
+          <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
+            Reviews
+          </span>
+          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+            What Customers Say
+          </h2>
+        </div>
+
+        {/* Testimonial cards */}
+        <div className="space-y-3 px-4">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.name}
+              className="bg-white rounded-xl p-5 shadow-sm relative"
+            >
+              {/* Stars */}
+              <div className="flex items-center gap-0.5 mb-3">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className="w-3 h-3 fill-amber-400 text-amber-400"
+                  />
+                ))}
+              </div>
+
+              {/* Quote icon */}
+              <Quote className="w-5 h-5 text-sky-100 absolute top-4 right-4" />
+
+              {/* Text */}
+              <p className="text-xs text-slate-600 leading-relaxed mb-4 pr-6">
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
+
+              {/* Author */}
+              <div className="flex items-center gap-2.5 pt-3 border-t border-slate-100">
+                <div className="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white text-[10px] font-bold">
+                  {testimonial.avatar}
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-slate-800">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-[10px] text-slate-400">{testimonial.role}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 8. CTA SECTION ============ */}
+      <section className="bg-gradient-to-br from-sky-50 via-white to-emerald-50">
+        <div className="px-4 py-10 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-medium mb-3">
+            <Leaf className="w-3 h-3" />
+            Ready To Save?
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-xl font-bold text-slate-800 tracking-tight mb-2">
             Start Shopping Smarter
           </h2>
-          <p className="text-xs text-[#a0a0a0] mb-5 max-w-xs mx-auto">
-            Join thousands who choose refurbished. Premium laptops, unbeatable prices, greener
-            planet.
+
+          {/* Subtext */}
+          <p className="text-xs text-slate-500 mb-5 max-w-xs mx-auto">
+            Join thousands who choose refurbished. Premium laptops, unbeatable prices, greener planet.
           </p>
+
+          {/* CTA Button */}
           <Link href="/shop">
-            <Button className="bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono text-xs tracking-wider rounded-sm h-10 px-6 transition-colors">
-              BROWSE LAPTOPS
-              <ChevronRight className="w-3.5 h-3.5 ml-1.5" />
+            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-6 text-xs shadow-lg shadow-sky-500/20">
+              Browse Laptops
+              <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
           </Link>
         </div>

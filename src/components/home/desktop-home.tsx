@@ -1,10 +1,28 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/data/products";
 import { ProductCard } from "./product-card";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Recycle, ShieldCheck, Award, Quote } from "lucide-react";
+import {
+  Leaf,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle,
+  Truck,
+  Briefcase,
+  Sparkles,
+  Zap,
+  Wallet,
+  Recycle,
+  Award,
+  Quote,
+  Star,
+  Search,
+  ClipboardCheck,
+  Package,
+} from "lucide-react";
 
 const featuredProducts = products.slice(0, 4);
 
@@ -31,8 +49,78 @@ const testimonials = [
 
 const stats = [
   { value: "10,000+", label: "Laptops Sold" },
-  { value: "98%", label: "Satisfaction" },
+  { value: "98%", label: "Satisfaction Rate" },
   { value: "50%", label: "Average Savings" },
+  { value: "52", label: "Point Inspection" },
+];
+
+const categories = [
+  {
+    name: "Business",
+    subtitle: "ThinkPads & EliteBooks",
+    icon: Briefcase,
+    iconColor: "text-slate-600",
+    bgColor: "bg-slate-50",
+    hoverBg: "hover:bg-slate-100",
+    hoverBorder: "hover:border-slate-200",
+  },
+  {
+    name: "Premium",
+    subtitle: "MacBooks & XPS",
+    icon: Sparkles,
+    iconColor: "text-sky-500",
+    bgColor: "bg-sky-50",
+    hoverBg: "hover:bg-sky-100",
+    hoverBorder: "hover:border-sky-200",
+  },
+  {
+    name: "Ultrabook",
+    subtitle: "Lightweight & portable",
+    icon: Zap,
+    iconColor: "text-amber-500",
+    bgColor: "bg-amber-50",
+    hoverBg: "hover:bg-amber-100",
+    hoverBorder: "hover:border-amber-200",
+  },
+  {
+    name: "Budget",
+    subtitle: "Best value picks",
+    icon: Wallet,
+    iconColor: "text-emerald-500",
+    bgColor: "bg-emerald-50",
+    hoverBg: "hover:bg-emerald-100",
+    hoverBorder: "hover:border-emerald-200",
+  },
+];
+
+const howItWorks = [
+  {
+    step: "01",
+    title: "Browse & Select",
+    description:
+      "Explore our curated collection of premium refurbished laptops from top brands.",
+    icon: Search,
+    stepBg: "bg-sky-100",
+    stepText: "text-sky-600",
+  },
+  {
+    step: "02",
+    title: "Quality Inspection",
+    description:
+      "Each laptop undergoes our rigorous 52-point inspection to ensure peak performance.",
+    icon: ClipboardCheck,
+    stepBg: "bg-emerald-100",
+    stepText: "text-emerald-600",
+  },
+  {
+    step: "03",
+    title: "Delivered to You",
+    description:
+      "Free shipping with secure packaging. Your laptop arrives ready to use with warranty.",
+    icon: Package,
+    stepBg: "bg-amber-100",
+    stepText: "text-amber-600",
+  },
 ];
 
 export function DesktopHome() {
@@ -40,93 +128,88 @@ export function DesktopHome() {
     <div className="hidden lg:block">
       {/* ============ HERO SECTION ============ */}
       <section className="relative bg-white overflow-hidden">
-        {/* Chevron decoration at top */}
-        <div
-          className="absolute top-0 left-0 w-full h-[4px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)",
-          }}
-        />
+        {/* Subtle gradient overlay at top */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-50/30 to-transparent pointer-events-none" />
 
-        {/* Background grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28">
           <div className="flex items-center gap-16">
             {/* Left: Text content */}
-            <div className="flex-1 space-y-8">
-              <div className="inline-flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981]/20 rounded-sm px-4 py-1.5">
-                <Recycle className="w-3.5 h-3.5 text-[#10B981]" />
-                <span className="text-[11px] font-mono tracking-widest text-[#10B981] uppercase">
-                  Sustainable Tech
-                </span>
+            <div className="flex-1">
+              {/* Pill badge */}
+              <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-medium">
+                <Leaf className="w-3.5 h-3.5" />
+                Sustainable Tech
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold font-mono leading-tight tracking-tight text-[#0a0a0a]">
-                Premium
+              {/* Heading */}
+              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-slate-800 leading-[1.1] mt-6">
+                Give Tech a
                 <br />
-                Refurbished
-                <br />
-                <span className="text-[#0096D6]">Laptops</span>
+                <span className="text-sky-500">Second Life</span>
               </h1>
 
-              <p className="text-lg text-[#6b7280] max-w-lg leading-relaxed">
-                Save up to <span className="text-[#0096D6] font-semibold font-mono">50%</span> on
-                top-brand laptops. Every device is quality tested, certified, and backed by our
-                warranty program.
+              {/* Subtext */}
+              <p className="text-lg text-slate-500 max-w-lg leading-relaxed mt-6">
+                Save up to <span className="text-sky-600 font-bold">50%</span> on
+                premium laptops. Every device is expertly restored, quality tested,
+                and backed by our warranty.
               </p>
 
-              <div className="flex items-center gap-4 pt-2">
+              {/* CTA buttons */}
+              <div className="flex gap-4 mt-8">
                 <Link href="/shop">
-                  <Button className="bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono text-sm tracking-wider rounded-sm h-12 px-8 transition-colors">
-                    SHOP NOW
-                    <ChevronRight className="w-4 h-4 ml-2" />
+                  <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-8 transition-colors">
+                    Shop Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
-                <Link
-                  href="/#about"
-                  className="text-sm font-mono tracking-wider text-[#6b7280] hover:text-[#0096D6] transition-colors flex items-center gap-1"
-                >
-                  LEARN MORE
-                  <ChevronRight className="w-3 h-3" />
+                <Link href="/#about">
+                  <Button
+                    variant="outline"
+                    className="border border-slate-200 text-slate-600 hover:border-sky-300 hover:text-sky-600 font-semibold rounded-xl h-12 px-6 transition-colors"
+                  >
+                    Learn More
+                  </Button>
                 </Link>
               </div>
 
               {/* Trust badges */}
-              <div className="flex items-center gap-6 pt-4">
-                {["12-Month Warranty", "Quality Tested", "Free Shipping"].map((badge) => (
-                  <div key={badge} className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#0096D6]" />
-                    <span className="text-[11px] font-mono tracking-wider text-[#6b7280] uppercase">
-                      {badge}
-                    </span>
-                  </div>
-                ))}
+              <div className="flex gap-6 mt-10">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-sky-500" />
+                  <span className="text-xs text-slate-500">12-Month Warranty</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-500" />
+                  <span className="text-xs text-slate-500">52-Point Inspection</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Truck className="w-4 h-4 text-amber-500" />
+                  <span className="text-xs text-slate-500">Free Shipping</span>
+                </div>
               </div>
             </div>
 
             {/* Right: Featured laptop image */}
             <div className="flex-1 flex items-center justify-center">
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute -inset-8 bg-[#0096D6]/5 rounded-full blur-3xl" />
-                <div className="relative bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-sm p-8 w-[480px]">
-                  <img
+              <div className="relative flex items-center justify-center">
+                {/* Decorative soft circle */}
+                <div className="absolute w-[400px] h-[400px] bg-sky-100 rounded-full blur-3xl opacity-60" />
+
+                {/* Laptop image container */}
+                <div className="relative bg-white rounded-2xl shadow-lg p-6 w-[440px] border border-slate-100">
+                  <Image
                     src="/products/thinkpad-x1.svg"
-                    alt="Featured laptop"
+                    alt="Featured laptop - ThinkPad X1 Carbon"
+                    width={400}
+                    height={300}
                     className="w-full h-auto"
+                    priority
                   />
-                  {/* Price tag overlay */}
-                  <div className="absolute -bottom-4 -right-4 bg-[#0096D6] text-white px-4 py-2 rounded-sm">
-                    <span className="text-[10px] font-mono tracking-widest block">FROM</span>
+
+                  {/* Price tag */}
+                  <div className="absolute -bottom-3 -right-3 bg-sky-500 text-white px-4 py-2 rounded-xl shadow-md">
+                    <span className="text-[10px] uppercase tracking-wider block">FROM</span>
                     <span className="text-2xl font-bold font-mono">$279</span>
                   </div>
                 </div>
@@ -134,38 +217,60 @@ export function DesktopHome() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Bottom chevron decoration */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-[2px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)",
-          }}
-        />
+      {/* ============ CATEGORY CARDS ============ */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* Section header */}
+          <div className="text-center mb-10">
+            <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
+              Browse by Category
+            </span>
+            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+              Find Your Perfect Laptop
+            </h2>
+          </div>
+
+          {/* Category grid */}
+          <div className="grid grid-cols-4 gap-5">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <Link key={category.name} href="/shop">
+                  <div
+                    className={`${category.bgColor} ${category.hoverBg} rounded-xl p-6 text-center cursor-pointer transition-all hover:shadow-md border border-transparent ${category.hoverBorder}`}
+                  >
+                    <Icon className={`w-10 h-10 mx-auto mb-3 ${category.iconColor}`} />
+                    <h3 className="text-sm font-semibold text-slate-800">{category.name}</h3>
+                    <p className="text-xs text-slate-500 mt-1">{category.subtitle}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* ============ FEATURED PRODUCTS ============ */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 py-20">
           {/* Section header */}
           <div className="flex items-end justify-between mb-10">
             <div>
-              <span className="text-[11px] font-mono tracking-widest text-[#0096D6] uppercase block mb-2">
+              <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
                 Featured Collection
               </span>
-              <h2 className="text-3xl font-bold font-mono text-[#0a0a0a] tracking-tight">
+              <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
                 Top Picks
               </h2>
             </div>
-            <Link href="/shop">
-              <Button
-                variant="outline"
-                className="font-mono text-xs tracking-wider rounded-sm border-[#e5e5e5] text-[#666] hover:border-[#0096D6] hover:text-[#0096D6] transition-colors"
-              >
-                VIEW ALL
-                <ChevronRight className="w-3 h-3 ml-1" />
-              </Button>
+            <Link
+              href="/shop"
+              className="text-sm text-sky-500 hover:text-sky-600 font-medium flex items-center gap-1 transition-colors"
+            >
+              View All
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -179,14 +284,14 @@ export function DesktopHome() {
       </section>
 
       {/* ============ WHY REFURBISHED ============ */}
-      <section id="about" className="bg-[#f8fafc] py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="about" className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-20">
           {/* Section header */}
           <div className="text-center mb-14">
-            <span className="text-[11px] font-mono tracking-widest text-[#0096D6] uppercase block mb-2">
+            <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               The ReBoot Advantage
             </span>
-            <h2 className="text-3xl font-bold font-mono tracking-tight text-[#0a0a0a]">
+            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
               Why Refurbished?
             </h2>
           </div>
@@ -194,58 +299,52 @@ export function DesktopHome() {
           {/* Cards */}
           <div className="grid grid-cols-3 gap-8">
             {/* Eco-Friendly */}
-            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#10B981] transition-colors">
-              <div className="w-14 h-14 rounded-sm bg-[#10B981]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#10B981]/20 transition-colors">
-                <Recycle className="w-7 h-7 text-[#10B981]" />
+            <div className="bg-emerald-50 rounded-2xl p-8 text-center group hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                <Recycle className="w-7 h-7 text-emerald-500" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
-                Eco-Friendly
-              </h3>
-              <p className="text-sm text-[#6b7280] leading-relaxed">
-                Every refurbished laptop prevents ~300kg of CO₂ emissions. Join the circular
-                economy and reduce e-waste while saving money.
+              <h3 className="text-lg font-semibold text-slate-800 mb-3">Eco-Friendly</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                Every refurbished laptop prevents ~300kg of CO₂ emissions. Join the
+                circular economy and reduce e-waste while saving money.
               </p>
-              <div className="mt-5 pt-4 border-t border-gray-100">
-                <span className="text-[10px] font-mono tracking-widest text-[#10B981] uppercase">
-                  ✦ 300kg CO₂ Saved Per Laptop
+              <div className="mt-5 pt-4 border-t border-emerald-200">
+                <span className="text-xs font-medium text-emerald-600">
+                  300kg CO₂ Saved Per Laptop
                 </span>
               </div>
             </div>
 
             {/* Quality Tested */}
-            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#0096D6] transition-colors">
-              <div className="w-14 h-14 rounded-sm bg-[#0096D6]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#0096D6]/20 transition-colors">
-                <ShieldCheck className="w-7 h-7 text-[#0096D6]" />
+            <div className="bg-sky-50 rounded-2xl p-8 text-center group hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                <ShieldCheck className="w-7 h-7 text-sky-500" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
-                Quality Tested
-              </h3>
-              <p className="text-sm text-[#6b7280] leading-relaxed">
+              <h3 className="text-lg font-semibold text-slate-800 mb-3">Quality Tested</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
                 Every laptop undergoes a rigorous 52-point inspection process. We test
                 performance, display, keyboard, ports, and battery life.
               </p>
-              <div className="mt-5 pt-4 border-t border-gray-100">
-                <span className="text-[10px] font-mono tracking-widest text-[#0096D6] uppercase">
-                  ✦ 52-Point Inspection
+              <div className="mt-5 pt-4 border-t border-sky-200">
+                <span className="text-xs font-medium text-sky-600">
+                  52-Point Inspection
                 </span>
               </div>
             </div>
 
             {/* Warranty Backed */}
-            <div className="bg-white border border-gray-100 rounded-sm p-8 text-center group hover:border-[#F59E0B] transition-colors">
-              <div className="w-14 h-14 rounded-sm bg-[#F59E0B]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F59E0B]/20 transition-colors">
-                <Award className="w-7 h-7 text-[#F59E0B]" />
+            <div className="bg-amber-50 rounded-2xl p-8 text-center group hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                <Award className="w-7 h-7 text-amber-500" />
               </div>
-              <h3 className="text-lg font-semibold font-mono tracking-wide mb-3 text-[#0a0a0a]">
-                Warranty Backed
-              </h3>
-              <p className="text-sm text-[#6b7280] leading-relaxed">
-                Every purchase includes a minimum 3-month warranty, with up to 12-month coverage on
-                premium grade laptops. Shop with confidence.
+              <h3 className="text-lg font-semibold text-slate-800 mb-3">Warranty Backed</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                Every purchase includes a minimum 3-month warranty, with up to 12-month
+                coverage on premium grade laptops. Shop with confidence.
               </p>
-              <div className="mt-5 pt-4 border-t border-gray-100">
-                <span className="text-[10px] font-mono tracking-widest text-[#F59E0B] uppercase">
-                  ✦ Up To 12 Months Coverage
+              <div className="mt-5 pt-4 border-t border-amber-200">
+                <span className="text-xs font-medium text-amber-600">
+                  Up To 12 Months Coverage
                 </span>
               </div>
             </div>
@@ -254,32 +353,80 @@ export function DesktopHome() {
       </section>
 
       {/* ============ STATS BANNER ============ */}
-      <section className="bg-white border-y border-gray-100">
+      <section className="bg-sky-50">
         <div className="max-w-7xl mx-auto px-6 py-14">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold font-mono text-[#0a0a0a] tracking-tight">
+                <div className="text-4xl font-bold text-slate-800 tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-sm font-mono tracking-widest text-[#a0a0a0] uppercase mt-2">
-                  {stat.label}
-                </div>
+                <div className="text-sm text-slate-500 mt-2">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ TESTIMONIALS ============ */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* ============ HOW IT WORKS ============ */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-20">
           {/* Section header */}
           <div className="text-center mb-14">
-            <span className="text-[11px] font-mono tracking-widest text-[#0096D6] uppercase block mb-2">
+            <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
+              Simple Process
+            </span>
+            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+              How It Works
+            </h2>
+          </div>
+
+          {/* Steps */}
+          <div className="grid grid-cols-3 gap-8">
+            {howItWorks.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.step} className="relative text-center">
+                  {/* Connecting line between steps */}
+                  {index < howItWorks.length - 1 && (
+                    <div className="absolute top-5 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px border-t border-dashed border-slate-200" />
+                  )}
+
+                  {/* Step number */}
+                  <div
+                    className={`w-10 h-10 rounded-full ${step.stepBg} ${step.stepText} font-bold text-sm flex items-center justify-center mx-auto mb-4`}
+                  >
+                    {step.step}
+                  </div>
+
+                  {/* Icon */}
+                  <Icon className="w-12 h-12 text-slate-400 mx-auto mb-4" />
+
+                  {/* Title */}
+                  <h3 className="text-base font-semibold text-slate-800 mb-2">
+                    {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ TESTIMONIALS ============ */}
+      <section className="bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          {/* Section header */}
+          <div className="text-center mb-14">
+            <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               Customer Reviews
             </span>
-            <h2 className="text-3xl font-bold font-mono text-[#0a0a0a] tracking-tight">
+            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
               What Our Customers Say
             </h2>
           </div>
@@ -289,21 +436,35 @@ export function DesktopHome() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.name}
-                className="bg-white border border-gray-100 rounded-sm p-8 relative"
+                className="bg-white rounded-2xl p-8 shadow-sm relative"
               >
-                <Quote className="w-8 h-8 text-[#0096D6]/15 absolute top-6 right-6" />
-                <p className="text-sm text-[#555] leading-relaxed mb-6">
+                <Quote className="w-8 h-8 text-sky-100 absolute top-6 right-6" />
+
+                {/* Star rating */}
+                <div className="flex gap-0.5 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star
+                      key={star}
+                      className="w-4 h-4 fill-amber-400 text-amber-400"
+                    />
+                  ))}
+                </div>
+
+                {/* Text */}
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <div className="w-10 h-10 rounded-sm bg-[#0096D6] flex items-center justify-center text-white text-xs font-mono font-bold">
+
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+                  <div className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-[#0a0a0a]">{testimonial.name}</div>
-                    <div className="text-[11px] font-mono tracking-wider text-[#a0a0a0] uppercase">
-                      {testimonial.role}
+                    <div className="text-sm font-semibold text-slate-800">
+                      {testimonial.name}
                     </div>
+                    <div className="text-xs text-slate-400">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
@@ -313,31 +474,30 @@ export function DesktopHome() {
       </section>
 
       {/* ============ CTA SECTION ============ */}
-      <section className="bg-[#0d1b2a] text-white py-20 relative overflow-hidden">
-        {/* Chevron top */}
-        <div
-          className="absolute top-0 left-0 w-full h-[3px]"
-          style={{
-            background:
-              "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)",
-          }}
-        />
-
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <span className="text-[11px] font-mono tracking-widest text-[#10B981] uppercase block mb-3">
+      <section className="bg-gradient-to-br from-sky-50 via-white to-emerald-50">
+        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-medium mb-4">
+            <Leaf className="w-3.5 h-3.5" />
             Ready To Save?
-          </span>
-          <h2 className="text-3xl lg:text-4xl font-bold font-mono tracking-tight mb-4">
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 tracking-tight mb-4">
             Start Shopping Smarter Today
           </h2>
-          <p className="text-[#a0a0a0] mb-8 max-w-lg mx-auto">
-            Join thousands of smart shoppers who choose refurbished. Premium laptops, unbeatable
-            prices, and a greener planet.
+
+          {/* Subtext */}
+          <p className="text-slate-500 mb-8 max-w-lg mx-auto">
+            Join thousands of smart shoppers who choose refurbished. Premium laptops,
+            unbeatable prices, and a greener planet.
           </p>
+
+          {/* CTA Button */}
           <Link href="/shop">
-            <Button className="bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono text-sm tracking-wider rounded-sm h-12 px-10 transition-colors">
-              BROWSE ALL LAPTOPS
-              <ChevronRight className="w-4 h-4 ml-2" />
+            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-10 shadow-lg shadow-sky-500/20 transition-colors">
+              Browse All Laptops
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>
