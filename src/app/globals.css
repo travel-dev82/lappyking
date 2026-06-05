@@ -53,19 +53,19 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.09 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.09 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.09 0 0);
   --primary: oklch(0.6 0.18 230);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.95 0.02 230);
+  --accent-foreground: oklch(0.15 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -76,11 +76,11 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(0.09 0 0);
   --sidebar-primary: oklch(0.6 0.18 230);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.95 0.02 230);
+  --sidebar-accent-foreground: oklch(0.15 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.6 0.18 230);
 }
@@ -128,6 +128,71 @@
   }
 }
 
+/* ===== STRONG BUTTON HOVER HIGHLIGHTS ===== */
+
+/* Primary buttons: noticeable shadow + color shift on hover */
+.btn-primary-highlight {
+  transition: all 0.2s ease;
+}
+.btn-primary-highlight:hover {
+  box-shadow: 0 6px 20px -2px rgba(14, 165, 233, 0.4), 0 2px 6px -1px rgba(14, 165, 233, 0.2);
+  transform: translateY(-1px);
+}
+.btn-primary-highlight:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px -1px rgba(14, 165, 233, 0.3);
+}
+
+/* Outline/secondary buttons: visible bg fill + border color change on hover */
+.btn-outline-highlight {
+  transition: all 0.2s ease;
+}
+.btn-outline-highlight:hover {
+  background-color: rgb(240 249 255); /* sky-50 */
+  border-color: rgb(56 189 248); /* sky-400 */
+  color: rgb(2 132 199); /* sky-700 */
+  box-shadow: 0 2px 8px -2px rgba(14, 165, 233, 0.15);
+}
+
+/* Ghost/subtle buttons: clear sky highlight on hover */
+.btn-ghost-highlight {
+  transition: all 0.15s ease;
+}
+.btn-ghost-highlight:hover {
+  background-color: rgb(240 249 255); /* sky-50 */
+  color: rgb(2 132 199); /* sky-700 */
+}
+
+/* Nav/menu link highlight: like shop category selection */
+.btn-nav-highlight {
+  transition: all 0.15s ease;
+}
+.btn-nav-highlight:hover {
+  background-color: rgb(240 249 255); /* sky-50 */
+  color: rgb(14 165 233); /* sky-500 */
+}
+.btn-nav-highlight-active {
+  background-color: rgb(240 249 255); /* sky-50 */
+  color: rgb(14 165 233); /* sky-500 */
+  font-weight: 600;
+}
+
+/* Filter chip/selection highlight (shop-style) */
+.btn-filter-highlight {
+  transition: all 0.15s ease;
+}
+.btn-filter-highlight:hover {
+  background-color: rgb(240 249 255); /* sky-50 */
+  color: rgb(2 132 199); /* sky-700 */
+  border-color: rgb(56 189 248); /* sky-400 */
+}
+.btn-filter-active {
+  background-color: rgb(14 165  233); /* sky-500 */
+  color: white;
+  font-weight: 600;
+  border-color: rgb(14 165 233);
+}
+
 /* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -149,7 +214,7 @@
 }
 .product-card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px -4px rgba(14, 165, 233, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 24px -4px rgba(14, 165, 233, 0.15), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Grade badge colors */

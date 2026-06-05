@@ -37,8 +37,8 @@ const stats = [
     label: "Total Orders",
     value: "5",
     icon: Package,
-    color: "text-[#0096D6]",
-    bgColor: "bg-[#0096D6]/10",
+    color: "text-sky-500",
+    bgColor: "bg-sky-50",
   },
   {
     label: "Active Orders",
@@ -71,10 +71,10 @@ export function CustomerDashboard() {
     <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
       {/* Welcome Message */}
       <div>
-        <h1 className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
-          Welcome back, <span className="text-[#0096D6]">{displayName.split(" ")[0]}</span>
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 font-semibold tracking-tight">
+          Welcome back, <span className="text-sky-500">{displayName.split(" ")[0]}</span>
         </h1>
-        <p className="text-sm text-gray-500 mt-1 font-mono">
+        <p className="text-sm text-slate-500 mt-1 font-mono">
           Here&apos;s what&apos;s happening with your orders
         </p>
       </div>
@@ -84,19 +84,19 @@ export function CustomerDashboard() {
         {stats.map((stat) => (
           <Card
             key={stat.label}
-            className="bg-white border border-gray-200/80 rounded-sm shadow-none hover:shadow-md transition-shadow"
+            className="bg-white border border-slate-200/80 rounded-xl shadow-none hover:shadow-md transition-shadow"
           >
             <CardContent className="p-4 lg:p-5">
               <div className="flex items-start justify-between">
-                <div className={`${stat.bgColor} p-2 rounded-sm`}>
+                <div className={`${stat.bgColor} p-2 rounded-xl`}>
                   <stat.icon className={`w-4 h-4 ${stat.color}`} />
                 </div>
               </div>
               <div className="mt-3">
-                <p className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
+                <p className="text-2xl lg:text-3xl font-bold text-gray-900 font-mono tracking-tight">
                   {stat.value}
                 </p>
-                <p className="text-xs text-gray-500 font-mono mt-0.5 uppercase tracking-wider">
+                <p className="text-xs text-slate-500 font-mono mt-0.5 uppercase tracking-wide">
                   {stat.label}
                 </p>
               </div>
@@ -106,15 +106,15 @@ export function CustomerDashboard() {
       </div>
 
       {/* Recent Orders */}
-      <Card className="bg-white border border-gray-200/80 rounded-sm shadow-none">
+      <Card className="bg-white border border-slate-200/80 rounded-xl shadow-none">
         <CardHeader className="pb-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-semibold font-mono text-[#0a0a0a] tracking-tight">
+            <CardTitle className="text-base font-semibold font-semibold text-gray-900 tracking-tight">
               Recent Orders
             </CardTitle>
             <Link
               href="/dashboard/customer#orders"
-              className="text-xs text-[#0096D6] hover:underline font-mono flex items-center gap-1"
+              className="text-xs text-sky-500 hover:text-sky-700 hover:underline font-mono flex items-center gap-1"
             >
               View All
               <ChevronRight className="w-3 h-3" />
@@ -126,47 +126,47 @@ export function CustomerDashboard() {
           <div className="hidden md:block">
             <Table>
               <TableHeader>
-                <TableRow className="border-b border-gray-100 hover:bg-transparent">
-                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-mono font-semibold">
+                <TableRow className="border-b border-slate-100 hover:bg-transparent">
+                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-mono font-semibold">
                     Order ID
                   </TableHead>
-                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-mono font-semibold">
+                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-mono font-semibold">
                     Product
                   </TableHead>
-                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-mono font-semibold">
+                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-mono font-semibold">
                     Status
                   </TableHead>
-                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-mono font-semibold">
+                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-mono font-semibold">
                     Date
                   </TableHead>
-                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-mono font-semibold text-right">
+                  <TableHead className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-mono font-semibold text-right">
                     Amount
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {dummyOrderData.map((order) => (
-                  <TableRow key={order.id} className="border-b border-gray-50">
-                    <TableCell className="font-mono text-sm font-medium text-[#0a0a0a]">
+                  <TableRow key={order.id} className="border-b border-slate-50">
+                    <TableCell className="font-mono text-sm font-medium text-gray-900">
                       {order.id}
                     </TableCell>
-                    <TableCell className="font-mono text-sm text-gray-600">
+                    <TableCell className="font-mono text-sm text-slate-600">
                       {order.product}
                     </TableCell>
                     <TableCell>
                       <Badge
                         variant="outline"
-                        className={`text-[10px] font-mono font-semibold rounded-sm px-2 py-0.5 border ${
+                        className={`text-[10px] font-mono font-semibold rounded-xl px-2 py-0.5 border ${
                           statusColorMap[order.status] || ""
                         }`}
                       >
                         {order.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="font-mono text-sm text-gray-500">
+                    <TableCell className="font-mono text-sm text-slate-500">
                       {order.date}
                     </TableCell>
-                    <TableCell className="font-mono text-sm font-semibold text-[#0a0a0a] text-right">
+                    <TableCell className="font-mono text-sm font-semibold text-gray-900 text-right">
                       ${order.amount}
                     </TableCell>
                   </TableRow>
@@ -180,25 +180,25 @@ export function CustomerDashboard() {
             {dummyOrderData.map((order) => (
               <div
                 key={order.id}
-                className="border border-gray-100 rounded-sm p-3 space-y-2"
+                className="border border-slate-100 rounded-xl p-3 space-y-2"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-semibold text-[#0a0a0a]">
+                  <span className="font-mono text-xs font-semibold text-gray-900">
                     {order.id}
                   </span>
                   <Badge
                     variant="outline"
-                    className={`text-[10px] font-mono font-semibold rounded-sm px-2 py-0.5 border ${
+                    className={`text-[10px] font-mono font-semibold rounded-xl px-2 py-0.5 border ${
                       statusColorMap[order.status] || ""
                     }`}
                   >
                     {order.status}
                   </Badge>
                 </div>
-                <p className="font-mono text-sm text-gray-700">{order.product}</p>
+                <p className="font-mono text-sm text-slate-600">{order.product}</p>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-gray-400">{order.date}</span>
-                  <span className="font-mono text-sm font-semibold text-[#0a0a0a]">
+                  <span className="font-mono text-xs text-slate-400">{order.date}</span>
+                  <span className="font-mono text-sm font-semibold text-gray-900">
                     ${order.amount}
                   </span>
                 </div>
@@ -210,13 +210,13 @@ export function CustomerDashboard() {
 
       {/* Quick Actions */}
       <div>
-        <h2 className="text-sm font-semibold font-mono text-[#0a0a0a] tracking-tight mb-3 uppercase tracking-wider">
+        <h2 className="text-sm font-semibold font-semibold text-gray-900 tracking-tight mb-3 uppercase tracking-wide">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Link href="/shop">
             <Button
-              className="w-full bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-primary-highlight"
             >
               <ShoppingBag className="w-4 h-4" />
               Shop Now
@@ -225,7 +225,7 @@ export function CustomerDashboard() {
           <Link href="/dashboard/customer#orders">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <MapPin className="w-4 h-4" />
               Track Order
@@ -234,7 +234,7 @@ export function CustomerDashboard() {
           <Link href="/dashboard/customer#support">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <Headphones className="w-4 h-4" />
               Contact Support

@@ -13,9 +13,9 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Laptop className="w-6 h-6 text-sky-500" />
               <span className="text-xl font-bold tracking-tight font-sans">
-                <span className="text-slate-800">Re</span>
+                <span className="text-gray-900">Re</span>
                 <span className="text-sky-500">Boot</span>
-                <span className="text-slate-400 ml-1">Tech</span>
+                <span className="text-slate-500 ml-1">Tech</span>
               </span>
             </Link>
             <p className="text-sm text-slate-500 leading-relaxed mb-4">
@@ -34,7 +34,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-800 mb-4">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { label: "Shop All", href: "/shop" },
@@ -56,7 +56,7 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-800 mb-4">Support</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Support</h3>
             <ul className="space-y-2">
               {[
                 { label: "About Us", href: "/#about" },
@@ -78,7 +78,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-800 mb-4">Contact</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-slate-500">
                 <Mail className="w-4 h-4 text-sky-500 shrink-0" />
@@ -98,17 +98,17 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500">
             © 2025 ReBoot Tech. All rights reserved. Not affiliated with any laptop manufacturer.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-xs text-slate-400 hover:text-slate-500 transition-colors">
+            <Link href="#" className="text-xs text-slate-500 hover:text-sky-600 transition-colors">
               Privacy
             </Link>
-            <Link href="#" className="text-xs text-slate-400 hover:text-slate-500 transition-colors">
+            <Link href="#" className="text-xs text-slate-500 hover:text-sky-600 transition-colors">
               Terms
             </Link>
-            <Link href="#" className="text-xs text-slate-400 hover:text-slate-500 transition-colors">
+            <Link href="#" className="text-xs text-slate-500 hover:text-sky-600 transition-colors">
               Cookies
             </Link>
           </div>

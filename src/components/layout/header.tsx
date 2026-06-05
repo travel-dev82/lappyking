@@ -29,7 +29,7 @@ export function DesktopHeader() {
           <Link href="/" className="flex items-center gap-2.5 group">
             <Laptop className="w-7 h-7 text-sky-500 transition-transform group-hover:scale-105" />
             <span className="text-xl font-bold tracking-tight font-sans">
-              <span className="text-slate-800">ReBoot</span>
+              <span className="text-gray-900">ReBoot</span>
               <span className="text-slate-400 ml-0.5">Tech</span>
             </span>
           </Link>
@@ -41,10 +41,10 @@ export function DesktopHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  className={`px-4 py-2 text-sm font-medium rounded-xl btn-nav-highlight ${
                     isActive
-                      ? "text-sky-500 bg-sky-50"
-                      : "text-slate-600 hover:text-sky-500 hover:bg-slate-50"
+                      ? "btn-nav-highlight-active text-sky-600 bg-sky-50 font-semibold"
+                      : "text-slate-600"
                   }`}
                 >
                   {link.label}
@@ -58,7 +58,7 @@ export function DesktopHeader() {
         <div className="flex items-center gap-5">
           <Link
             href="/cart"
-            className="relative p-2 text-slate-500 hover:text-sky-500 transition-colors rounded-lg hover:bg-slate-50"
+            className="relative p-2 text-slate-500 hover:text-sky-600 transition-colors rounded-lg hover:bg-sky-50"
           >
             <ShoppingCart className="w-5 h-5" />
             {totalItems > 0 && (
@@ -72,7 +72,7 @@ export function DesktopHeader() {
             <div className="flex items-center gap-3">
               <Link
                 href={`/dashboard/${user?.role}`}
-                className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl hover:bg-slate-50 transition-colors"
+                className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl hover:bg-sky-50 transition-colors"
               >
                 <div className="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold font-sans">
                   {user?.avatar}
@@ -83,7 +83,7 @@ export function DesktopHeader() {
                 onClick={logout}
                 variant="ghost"
                 size="sm"
-                className="text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-lg text-xs gap-1.5"
+                className="btn-ghost-highlight text-slate-500 hover:text-sky-700 hover:bg-sky-50 rounded-xl text-xs gap-1.5"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 Logout
@@ -93,7 +93,7 @@ export function DesktopHeader() {
             <Link href="/login">
               <Button
                 size="sm"
-                className="bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm rounded-xl px-5 h-9 shadow-sm shadow-sky-500/20"
+                className="btn-primary-highlight bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm rounded-xl px-5 h-9 shadow-sm shadow-sky-500/20"
               >
                 Sign In
               </Button>
@@ -118,7 +118,7 @@ export function MobileHeader() {
         <Link href="/" className="flex items-center gap-2">
           <Laptop className="w-6 h-6 text-sky-500" />
           <span className="text-lg font-bold tracking-tight font-sans">
-            <span className="text-slate-800">ReBoot</span>
+            <span className="text-gray-900">ReBoot</span>
             <span className="text-slate-400 ml-0.5">Tech</span>
           </span>
         </Link>
@@ -127,7 +127,7 @@ export function MobileHeader() {
         <div className="flex items-center gap-1">
           <Link
             href="/cart"
-            className="relative p-2 text-slate-500 hover:text-sky-500 transition-colors rounded-lg"
+            className="relative p-2 text-slate-500 hover:text-sky-600 transition-colors rounded-lg hover:bg-sky-50"
           >
             <ShoppingCart className="w-5 h-5" />
             {totalItems > 0 && (
@@ -139,7 +139,7 @@ export function MobileHeader() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-slate-600 hover:bg-slate-50 rounded-lg">
+              <Button variant="ghost" size="icon" className="btn-ghost-highlight text-slate-600 hover:bg-sky-50 hover:text-sky-600 rounded-lg">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
@@ -152,7 +152,7 @@ export function MobileHeader() {
                 <div className="flex items-center gap-2.5 px-6 h-14 border-b border-slate-100">
                   <Laptop className="w-6 h-6 text-sky-500" />
                   <span className="text-lg font-bold tracking-tight font-sans">
-                    <span className="text-slate-800">ReBoot</span>
+                    <span className="text-gray-900">ReBoot</span>
                     <span className="text-slate-400 ml-0.5">Tech</span>
                   </span>
                 </div>
@@ -166,10 +166,10 @@ export function MobileHeader() {
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className={`flex items-center px-6 py-3 text-sm font-medium rounded-lg mx-3 transition-colors ${
+                        className={`flex items-center px-6 py-3 text-sm font-medium rounded-xl mx-3 btn-nav-highlight ${
                           isActive
-                            ? "text-sky-500 bg-sky-50"
-                            : "text-slate-600 hover:text-sky-500 hover:bg-slate-50"
+                            ? "btn-nav-highlight-active text-sky-600 bg-sky-50 font-semibold"
+                            : "text-slate-600"
                         }`}
                       >
                         {link.label}
@@ -191,7 +191,7 @@ export function MobileHeader() {
                           {user?.avatar}
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-slate-800">{user?.name}</div>
+                          <div className="text-sm font-medium text-gray-900">{user?.name}</div>
                           <div className="text-xs text-slate-400 capitalize">{user?.role}</div>
                         </div>
                       </Link>
@@ -201,7 +201,7 @@ export function MobileHeader() {
                       >
                         <Button
                           variant="outline"
-                          className="w-full justify-start gap-2 rounded-xl text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-sky-500"
+                          className="btn-ghost-highlight w-full justify-start gap-2 rounded-xl text-slate-600 border-slate-200 hover:bg-sky-50 hover:text-sky-600"
                         >
                           <LayoutDashboard className="w-4 h-4" />
                           Dashboard
@@ -213,7 +213,7 @@ export function MobileHeader() {
                           setOpen(false);
                         }}
                         variant="ghost"
-                        className="w-full justify-start gap-2 rounded-xl text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                        className="btn-ghost-highlight w-full justify-start gap-2 rounded-xl text-slate-500 hover:text-sky-700 hover:bg-sky-50"
                       >
                         <LogOut className="w-4 h-4" />
                         Logout
@@ -221,7 +221,7 @@ export function MobileHeader() {
                     </>
                   ) : (
                     <Link href="/login" onClick={() => setOpen(false)}>
-                      <Button className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl shadow-sm shadow-sky-500/20">
+                      <Button className="btn-primary-highlight w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl shadow-sm shadow-sky-500/20">
                         Sign In
                       </Button>
                     </Link>

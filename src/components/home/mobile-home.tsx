@@ -123,7 +123,7 @@ export function MobileHome() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-3xl font-bold tracking-tight text-slate-800 leading-tight mb-4">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 leading-tight mb-4">
             Give Tech a
             <br />
             <span className="text-sky-500">Second Life</span>
@@ -137,7 +137,7 @@ export function MobileHome() {
           {/* CTA buttons */}
           <div className="flex gap-3 mb-6">
             <Link href="/shop">
-              <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-5 text-xs">
+              <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-5 text-xs btn-primary-highlight">
                 Shop Now
                 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
               </Button>
@@ -145,7 +145,7 @@ export function MobileHome() {
             <Link href="/#why-refurbished">
               <Button
                 variant="outline"
-                className="border border-slate-200 text-slate-600 font-medium rounded-xl h-10 px-4 text-xs"
+                className="border border-slate-200 text-slate-600 font-medium rounded-xl h-10 px-4 text-xs btn-outline-highlight"
               >
                 Learn More
               </Button>
@@ -190,7 +190,7 @@ export function MobileHome() {
           <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
             Browse
           </span>
-          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+          <h2 className="text-lg font-bold text-gray-900 tracking-tight">
             Find Your Laptop
           </h2>
         </div>
@@ -199,9 +199,9 @@ export function MobileHome() {
         <div className="flex gap-3 overflow-x-auto px-4 pb-2 snap-x snap-mandatory scrollbar-hide">
           {categories.map((cat) => (
             <Link key={cat.title} href="/shop" className="min-w-[140px] snap-start">
-              <div className={`rounded-xl p-4 text-center ${cat.bgColor}`}>
+              <div className={`rounded-xl p-4 text-center ${cat.bgColor} btn-nav-highlight`}>
                 <cat.icon className={`w-8 h-8 mx-auto mb-2 ${cat.iconColor}`} />
-                <div className="text-xs font-semibold text-slate-800">{cat.title}</div>
+                <div className="text-xs font-semibold text-gray-900">{cat.title}</div>
                 <div className="text-[10px] text-slate-500 mt-0.5">{cat.subtitle}</div>
               </div>
             </Link>
@@ -217,11 +217,11 @@ export function MobileHome() {
             <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
               Featured
             </span>
-            <h2 className="text-lg font-bold text-slate-800 tracking-tight">Top Picks</h2>
+            <h2 className="text-lg font-bold text-gray-900 tracking-tight">Top Picks</h2>
           </div>
           <Link
             href="/shop"
-            className="text-sky-500 text-xs font-medium hover:text-sky-600 transition-colors"
+            className="text-sky-500 text-xs font-medium hover:text-sky-600 transition-colors btn-nav-highlight"
           >
             View All
           </Link>
@@ -244,7 +244,7 @@ export function MobileHome() {
           <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
             The ReBoot Advantage
           </span>
-          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+          <h2 className="text-lg font-bold text-gray-900 tracking-tight">
             Why Refurbished?
           </h2>
         </div>
@@ -257,7 +257,7 @@ export function MobileHome() {
               <Recycle className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-800">Eco-Friendly</h3>
+              <h3 className="text-sm font-semibold text-gray-900">Eco-Friendly</h3>
               <p className="text-xs text-slate-500 mt-0.5">
                 Every laptop prevents ~300kg of CO₂ emissions. Join the circular economy.
               </p>
@@ -273,7 +273,7 @@ export function MobileHome() {
               <ShieldCheck className="w-5 h-5 text-sky-500" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-800">Quality Tested</h3>
+              <h3 className="text-sm font-semibold text-gray-900">Quality Tested</h3>
               <p className="text-xs text-slate-500 mt-0.5">
                 Rigorous 52-point inspection. Performance, display, keyboard &amp; battery all tested.
               </p>
@@ -289,7 +289,7 @@ export function MobileHome() {
               <Award className="w-5 h-5 text-amber-500" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-800">Warranty Backed</h3>
+              <h3 className="text-sm font-semibold text-gray-900">Warranty Backed</h3>
               <p className="text-xs text-slate-500 mt-0.5">
                 3–12 month warranty on every laptop. Shop with complete confidence.
               </p>
@@ -306,7 +306,7 @@ export function MobileHome() {
         <div className="px-4 grid grid-cols-2 gap-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-slate-800">{stat.value}</div>
+              <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
               <div className="text-[10px] text-slate-500 mt-1">{stat.label}</div>
             </div>
           ))}
@@ -320,7 +320,7 @@ export function MobileHome() {
           <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
             Simple Process
           </span>
-          <h2 className="text-lg font-bold text-slate-800 tracking-tight">How It Works</h2>
+          <h2 className="text-lg font-bold text-gray-900 tracking-tight">How It Works</h2>
         </div>
 
         {/* Steps */}
@@ -333,7 +333,7 @@ export function MobileHome() {
                 {step.number}
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-800">{step.title}</h3>
+                <h3 className="text-sm font-semibold text-gray-900">{step.title}</h3>
                 <p className="text-xs text-slate-500 mt-0.5">{step.description}</p>
               </div>
             </div>
@@ -348,7 +348,7 @@ export function MobileHome() {
           <span className="text-[10px] text-sky-500 font-medium uppercase tracking-wider block mb-1">
             Reviews
           </span>
-          <h2 className="text-lg font-bold text-slate-800 tracking-tight">
+          <h2 className="text-lg font-bold text-gray-900 tracking-tight">
             What Customers Say
           </h2>
         </div>
@@ -384,7 +384,7 @@ export function MobileHome() {
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-800">
+                  <div className="text-xs font-semibold text-gray-900">
                     {testimonial.name}
                   </div>
                   <div className="text-[10px] text-slate-400">{testimonial.role}</div>
@@ -405,7 +405,7 @@ export function MobileHome() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-xl font-bold text-slate-800 tracking-tight mb-2">
+          <h2 className="text-xl font-bold text-gray-900 tracking-tight mb-2">
             Start Shopping Smarter
           </h2>
 
@@ -416,7 +416,7 @@ export function MobileHome() {
 
           {/* CTA Button */}
           <Link href="/shop">
-            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-6 text-xs shadow-lg shadow-sky-500/20">
+            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-10 px-6 text-xs shadow-lg shadow-sky-500/20 btn-primary-highlight">
               Browse Laptops
               <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>

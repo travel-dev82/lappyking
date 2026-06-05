@@ -31,7 +31,7 @@ import {
 const chartConfig = {
   value: {
     label: "Revenue",
-    color: "#0096D6",
+    color: "#0ea5e9",
   },
 } satisfies ChartConfig;
 
@@ -49,8 +49,8 @@ const stats = [
     label: "Total Orders",
     value: "342",
     icon: Package,
-    color: "text-[#0096D6]",
-    bgColor: "bg-[#0096D6]/10",
+    color: "text-sky-500",
+    bgColor: "bg-sky-50",
     change: "+8.2%",
     changeColor: "text-emerald-600",
   },
@@ -81,7 +81,7 @@ const activityFeed = [
     detail: "Emma Wilson — Premium tier",
     time: "5 min ago",
     icon: UserPlus,
-    iconColor: "text-[#0096D6]",
+    iconColor: "text-sky-500",
   },
   {
     id: 2,
@@ -125,11 +125,11 @@ export function AdminDashboard() {
     <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
       {/* Welcome Message */}
       <div>
-        <h1 className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 font-semibold tracking-tight">
           Admin Dashboard
         </h1>
-        <p className="text-sm text-gray-500 mt-1 font-mono">
-          Welcome back, <span className="text-[#0096D6] font-medium">{displayName}</span> — Here&apos;s your business overview
+        <p className="text-sm text-slate-500 mt-1 font-mono">
+          Welcome back, <span className="text-sky-500 font-medium">{displayName}</span> — Here&apos;s your business overview
         </p>
       </div>
 
@@ -138,11 +138,11 @@ export function AdminDashboard() {
         {stats.map((stat) => (
           <Card
             key={stat.label}
-            className="bg-white border border-gray-200/80 rounded-sm shadow-none hover:shadow-md transition-shadow"
+            className="bg-white border border-slate-200/80 rounded-xl shadow-none hover:shadow-md transition-shadow"
           >
             <CardContent className="p-4 lg:p-5">
               <div className="flex items-start justify-between">
-                <div className={`${stat.bgColor} p-2 rounded-sm`}>
+                <div className={`${stat.bgColor} p-2 rounded-xl`}>
                   <stat.icon className={`w-4 h-4 ${stat.color}`} />
                 </div>
                 <span className={`text-[10px] font-mono font-semibold ${stat.changeColor} flex items-center gap-0.5`}>
@@ -151,10 +151,10 @@ export function AdminDashboard() {
                 </span>
               </div>
               <div className="mt-3">
-                <p className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
+                <p className="text-2xl lg:text-3xl font-bold text-gray-900 font-mono tracking-tight">
                   {stat.value}
                 </p>
-                <p className="text-xs text-gray-500 font-mono mt-0.5 uppercase tracking-wider">
+                <p className="text-xs text-slate-500 font-mono mt-0.5 uppercase tracking-wide">
                   {stat.label}
                 </p>
               </div>
@@ -166,9 +166,9 @@ export function AdminDashboard() {
       {/* Revenue Chart + Activity Feed */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         {/* Revenue Chart */}
-        <Card className="lg:col-span-2 bg-white border border-gray-200/80 rounded-sm shadow-none">
+        <Card className="lg:col-span-2 bg-white border border-slate-200/80 rounded-xl shadow-none">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base font-semibold font-mono text-[#0a0a0a] tracking-tight">
+            <CardTitle className="text-base font-semibold font-semibold text-gray-900 tracking-tight">
               Monthly Revenue
             </CardTitle>
           </CardHeader>
@@ -180,12 +180,12 @@ export function AdminDashboard() {
                   dataKey="month"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fontSize: 11, fontFamily: "monospace", fill: "#a0a0a0" }}
+                  tick={{ fontSize: 11, fontFamily: "monospace", fill: "#94a3b8" }}
                 />
                 <YAxis
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fontSize: 11, fontFamily: "monospace", fill: "#a0a0a0" }}
+                  tick={{ fontSize: 11, fontFamily: "monospace", fill: "#94a3b8" }}
                   tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
@@ -196,9 +196,9 @@ export function AdminDashboard() {
         </Card>
 
         {/* Activity Feed */}
-        <Card className="bg-white border border-gray-200/80 rounded-sm shadow-none">
+        <Card className="bg-white border border-slate-200/80 rounded-xl shadow-none">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base font-semibold font-mono text-[#0a0a0a] tracking-tight">
+            <CardTitle className="text-base font-semibold font-semibold text-gray-900 tracking-tight">
               Recent Activity
             </CardTitle>
           </CardHeader>
@@ -208,22 +208,22 @@ export function AdminDashboard() {
                 <div
                   key={activity.id}
                   className={`flex items-start gap-3 py-3 ${
-                    index < activityFeed.length - 1 ? "border-b border-gray-50" : ""
+                    index < activityFeed.length - 1 ? "border-b border-slate-50" : ""
                   }`}
                 >
-                  <div className="mt-0.5 bg-gray-50 p-1.5 rounded-sm shrink-0">
+                  <div className="mt-0.5 bg-slate-50 p-1.5 rounded-xl shrink-0">
                     <activity.icon className={`w-3.5 h-3.5 ${activity.iconColor}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs font-mono font-medium text-[#0a0a0a] truncate">
+                      <p className="text-xs font-mono font-medium text-gray-900 truncate">
                         {activity.action}
                       </p>
                     </div>
-                    <p className="text-[11px] font-mono text-gray-500 mt-0.5 truncate">
+                    <p className="text-[11px] font-mono text-slate-500 mt-0.5 truncate">
                       {activity.detail}
                     </p>
-                    <span className="text-[10px] font-mono text-gray-400 mt-1 flex items-center gap-1">
+                    <span className="text-[10px] font-mono text-slate-400 mt-1 flex items-center gap-1">
                       <Clock className="w-2.5 h-2.5" />
                       {activity.time}
                     </span>
@@ -237,13 +237,13 @@ export function AdminDashboard() {
 
       {/* Quick Actions */}
       <div>
-        <h2 className="text-sm font-semibold font-mono text-[#0a0a0a] tracking-tight mb-3 uppercase tracking-wider">
+        <h2 className="text-sm font-semibold font-semibold text-gray-900 tracking-tight mb-3 uppercase tracking-wide">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Link href="/dashboard/admin#users">
             <Button
-              className="w-full bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-primary-highlight"
             >
               <Users className="w-4 h-4" />
               Manage Users
@@ -253,7 +253,7 @@ export function AdminDashboard() {
           <Link href="/dashboard/admin#analytics">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <BarChart3 className="w-4 h-4" />
               View Analytics
@@ -263,7 +263,7 @@ export function AdminDashboard() {
           <Link href="/dashboard/admin#settings">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <Settings className="w-4 h-4" />
               System Settings

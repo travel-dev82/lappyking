@@ -70,28 +70,28 @@ export function LoginForm() {
     <div className="w-full max-w-md mx-auto">
       {/* Chevron top decoration */}
       <div
-        className="w-full h-[3px] rounded-t-sm"
+        className="w-full h-[3px] rounded-t-xl"
         style={{
           background:
-            "repeating-linear-gradient(90deg, #0096D6 0px, #0096D6 12px, transparent 12px, transparent 24px)",
+            "repeating-linear-gradient(90deg, #0ea5e9 0px, #0ea5e9 12px, transparent 12px, transparent 24px)",
         }}
       />
 
-      <div className="bg-white border border-gray-200 border-t-0 rounded-b-sm shadow-lg p-6 sm:p-8">
+      <div className="bg-white border border-slate-200 border-t-0 rounded-b-xl shadow-lg p-6 sm:p-8">
         {/* Header */}
         <div className="flex items-center justify-center gap-2 mb-6">
-          <Laptop className="w-7 h-7 text-[#0096D6]" />
-          <span className="text-xl font-semibold tracking-wider font-mono">
-            <span className="text-[#0a0a0a]">Re</span>
-            <span className="text-[#0096D6]">Boot</span>
-            <span className="text-[#a0a0a0] ml-1">Tech</span>
+          <Laptop className="w-7 h-7 text-sky-500" />
+          <span className="text-xl font-semibold tracking-wide font-semibold">
+            <span className="text-gray-900">Re</span>
+            <span className="text-sky-500">Boot</span>
+            <span className="text-slate-400 ml-1">Tech</span>
           </span>
         </div>
 
-        <h2 className="text-center text-lg font-mono font-semibold text-[#0a0a0a] tracking-wider mb-1">
+        <h2 className="text-center text-lg font-semibold font-semibold text-gray-900 tracking-wide mb-1">
           SIGN IN
         </h2>
-        <p className="text-center text-sm text-[#a0a0a0] mb-6">
+        <p className="text-center text-sm text-slate-400 mb-6">
           Select your role to continue
         </p>
 
@@ -104,29 +104,29 @@ export function LoginForm() {
                 key={role}
                 type="button"
                 onClick={() => handleRoleSelect(role)}
-                className={`flex flex-col items-center gap-2 p-3 sm:p-4 border rounded-sm transition-all duration-200 cursor-pointer ${
+                className={`flex flex-col items-center gap-2 p-3 sm:p-4 border rounded-xl transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? "border-[#0096D6] bg-[#0096D6]/5 shadow-sm"
-                    : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
+                    ? "bg-sky-50 border-sky-500 shadow-sm"
+                    : "border-slate-200 bg-white btn-filter-highlight"
                 }`}
               >
                 <div
-                  className={`w-10 h-10 rounded-sm flex items-center justify-center transition-colors ${
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
                     isSelected
-                      ? "bg-[#0096D6] text-white"
-                      : "bg-gray-100 text-[#a0a0a0]"
+                      ? "bg-sky-500 text-white"
+                      : "bg-slate-100 text-slate-400"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
                 <span
-                  className={`text-xs font-mono font-semibold tracking-wider ${
-                    isSelected ? "text-[#0096D6]" : "text-[#0a0a0a]"
+                  className={`text-xs font-semibold tracking-wide ${
+                    isSelected ? "text-sky-500" : "text-gray-900"
                   }`}
                 >
                   {label}
                 </span>
-                <span className="text-[10px] text-[#a0a0a0] text-center leading-tight hidden sm:block">
+                <span className="text-[10px] text-slate-400 text-center leading-tight hidden sm:block">
                   {description}
                 </span>
               </button>
@@ -139,7 +139,7 @@ export function LoginForm() {
           <div className="space-y-2">
             <Label
               htmlFor="email"
-              className="text-xs font-mono font-semibold tracking-wider text-[#0a0a0a] uppercase"
+              className="text-xs font-semibold tracking-wide text-gray-900 uppercase"
             >
               Email
             </Label>
@@ -148,7 +148,7 @@ export function LoginForm() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="rounded-sm border-gray-200 focus:border-[#0096D6] focus:ring-[#0096D6]/20 font-mono text-sm h-10"
+              className="rounded-xl border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 font-mono text-sm h-10"
               readOnly
             />
           </div>
@@ -156,7 +156,7 @@ export function LoginForm() {
           <div className="space-y-2">
             <Label
               htmlFor="password"
-              className="text-xs font-mono font-semibold tracking-wider text-[#0a0a0a] uppercase"
+              className="text-xs font-semibold tracking-wide text-gray-900 uppercase"
             >
               Password
             </Label>
@@ -166,14 +166,14 @@ export function LoginForm() {
               placeholder="Enter any password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="rounded-sm border-gray-200 focus:border-[#0096D6] focus:ring-[#0096D6]/20 font-mono text-sm h-10"
+              className="rounded-xl border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 font-mono text-sm h-10"
             />
           </div>
 
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono font-semibold tracking-wider text-sm rounded-sm h-10 transition-colors"
+            className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold tracking-wide text-sm rounded-xl h-10 transition-colors btn-primary-highlight"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export function LoginForm() {
         </form>
 
         {/* Footer hint */}
-        <p className="text-center text-[10px] text-[#a0a0a0] mt-4 font-mono">
+        <p className="text-center text-[10px] text-slate-400 mt-4 font-mono">
           Demo account — any password works
         </p>
       </div>

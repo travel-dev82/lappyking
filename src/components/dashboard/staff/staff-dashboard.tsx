@@ -23,8 +23,8 @@ const stats = [
     label: "Orders Today",
     value: "12",
     icon: Package,
-    color: "text-[#0096D6]",
-    bgColor: "bg-[#0096D6]/10",
+    color: "text-sky-500",
+    bgColor: "bg-sky-50",
   },
   {
     label: "Pending Quality Checks",
@@ -64,7 +64,7 @@ const recentActivity = [
     detail: "ORD-006 — MacBook Pro 14\"",
     time: "25 min ago",
     icon: Package,
-    iconColor: "text-[#0096D6]",
+    iconColor: "text-sky-500",
   },
   {
     id: 3,
@@ -108,10 +108,10 @@ export function StaffDashboard() {
     <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
       {/* Welcome Message */}
       <div>
-        <h1 className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
-          Hello, <span className="text-[#0096D6]">{displayName.split(" ")[0]}</span>
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 font-semibold tracking-tight">
+          Hello, <span className="text-sky-500">{displayName.split(" ")[0]}</span>
         </h1>
-        <p className="text-sm text-gray-500 mt-1 font-mono">
+        <p className="text-sm text-slate-500 mt-1 font-mono">
           Here&apos;s your shift overview for today
         </p>
       </div>
@@ -121,19 +121,19 @@ export function StaffDashboard() {
         {stats.map((stat) => (
           <Card
             key={stat.label}
-            className="bg-white border border-gray-200/80 rounded-sm shadow-none hover:shadow-md transition-shadow"
+            className="bg-white border border-slate-200/80 rounded-xl shadow-none hover:shadow-md transition-shadow"
           >
             <CardContent className="p-4 lg:p-5">
               <div className="flex items-start justify-between">
-                <div className={`${stat.bgColor} p-2 rounded-sm`}>
+                <div className={`${stat.bgColor} p-2 rounded-xl`}>
                   <stat.icon className={`w-4 h-4 ${stat.color}`} />
                 </div>
               </div>
               <div className="mt-3">
-                <p className="text-2xl lg:text-3xl font-bold text-[#0a0a0a] font-mono tracking-tight">
+                <p className="text-2xl lg:text-3xl font-bold text-gray-900 font-mono tracking-tight">
                   {stat.value}
                 </p>
-                <p className="text-xs text-gray-500 font-mono mt-0.5 uppercase tracking-wider">
+                <p className="text-xs text-slate-500 font-mono mt-0.5 uppercase tracking-wide">
                   {stat.label}
                 </p>
               </div>
@@ -143,15 +143,15 @@ export function StaffDashboard() {
       </div>
 
       {/* Recent Activity */}
-      <Card className="bg-white border border-gray-200/80 rounded-sm shadow-none">
+      <Card className="bg-white border border-slate-200/80 rounded-xl shadow-none">
         <CardHeader className="pb-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-semibold font-mono text-[#0a0a0a] tracking-tight">
+            <CardTitle className="text-base font-semibold font-semibold text-gray-900 tracking-tight">
               Recent Activity
             </CardTitle>
             <Link
               href="/dashboard/staff#orders"
-              className="text-xs text-[#0096D6] hover:underline font-mono flex items-center gap-1"
+              className="text-xs text-sky-500 hover:text-sky-700 hover:underline font-mono flex items-center gap-1"
             >
               View All
               <ChevronRight className="w-3 h-3" />
@@ -164,23 +164,23 @@ export function StaffDashboard() {
               <div
                 key={activity.id}
                 className={`flex items-start gap-3 py-3 ${
-                  index < recentActivity.length - 1 ? "border-b border-gray-50" : ""
+                  index < recentActivity.length - 1 ? "border-b border-slate-50" : ""
                 }`}
               >
-                <div className="mt-0.5 bg-gray-50 p-1.5 rounded-sm shrink-0">
+                <div className="mt-0.5 bg-slate-50 p-1.5 rounded-xl shrink-0">
                   <activity.icon className={`w-3.5 h-3.5 ${activity.iconColor}`} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm font-mono font-medium text-[#0a0a0a] truncate">
+                    <p className="text-sm font-mono font-medium text-gray-900 truncate">
                       {activity.action}
                     </p>
-                    <span className="text-[10px] font-mono text-gray-400 whitespace-nowrap flex items-center gap-1">
+                    <span className="text-[10px] font-mono text-slate-400 whitespace-nowrap flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {activity.time}
                     </span>
                   </div>
-                  <p className="text-xs font-mono text-gray-500 mt-0.5 truncate">
+                  <p className="text-xs font-mono text-slate-500 mt-0.5 truncate">
                     {activity.detail}
                   </p>
                 </div>
@@ -192,13 +192,13 @@ export function StaffDashboard() {
 
       {/* Quick Actions */}
       <div>
-        <h2 className="text-sm font-semibold font-mono text-[#0a0a0a] tracking-tight mb-3 uppercase tracking-wider">
+        <h2 className="text-sm font-semibold font-semibold text-gray-900 tracking-tight mb-3 uppercase tracking-wide">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Link href="/dashboard/staff#orders">
             <Button
-              className="w-full bg-[#0096D6] hover:bg-[#0078AE] text-white font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-primary-highlight"
             >
               <Package className="w-4 h-4" />
               Process Orders
@@ -208,7 +208,7 @@ export function StaffDashboard() {
           <Link href="/dashboard/staff#quality">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <ClipboardCheck className="w-4 h-4" />
               Quality Check
@@ -218,7 +218,7 @@ export function StaffDashboard() {
           <Link href="/dashboard/staff#inventory">
             <Button
               variant="outline"
-              className="w-full border-gray-200 hover:border-[#0096D6] hover:text-[#0096D6] font-mono font-medium tracking-wider rounded-sm h-11 gap-2"
+              className="w-full border-slate-200 hover:border-sky-400 hover:text-sky-600 font-semibold font-medium tracking-wide rounded-xl h-11 gap-2 btn-outline-highlight"
             >
               <AlertTriangle className="w-4 h-4" />
               Update Inventory

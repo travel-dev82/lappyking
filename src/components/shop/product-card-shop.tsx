@@ -10,14 +10,14 @@ import { Product } from "@/data/products";
 
 const conditionColors: Record<string, string> = {
   "A+": "#10B981",
-  A: "#0096D6",
+  A: "#0EA5E9",
   "B+": "#F59E0B",
   B: "#EF4444",
 };
 
 const conditionBgColors: Record<string, string> = {
   "A+": "bg-emerald-500",
-  A: "bg-[#0096D6]",
+  A: "bg-sky-500",
   "B+": "bg-amber-500",
   B: "bg-red-500",
 };
@@ -27,21 +27,21 @@ export function ProductCardShop({ product }: { product: Product }) {
 
   return (
     <Link href="#" className="group block">
-      <div className="relative rounded-sm border border-gray-200 bg-white overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
+      <div className="relative rounded-xl border border-slate-200 bg-white overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
         {/* Out of Stock Overlay */}
         {!product.inStock && (
           <div className="absolute inset-0 z-20 bg-black/50 flex items-center justify-center">
-            <span className="font-mono text-white text-lg font-bold tracking-widest uppercase">
+            <span className="font-semibold text-white text-lg font-bold tracking-wide uppercase">
               Out of Stock
             </span>
           </div>
         )}
 
         {/* Image Area */}
-        <div className="relative aspect-[4/3] bg-gray-50 border-b border-gray-100 flex items-center justify-center p-4 overflow-hidden">
+        <div className="relative aspect-[4/3] bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 overflow-hidden">
           {/* Condition Grade Badge */}
           <div
-            className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-sm text-white text-[11px] font-mono font-bold tracking-wider"
+            className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-xl text-white text-[11px] font-semibold tracking-wide"
             style={{ backgroundColor: conditionColors[product.condition] }}
           >
             Grade {product.condition}
@@ -49,7 +49,7 @@ export function ProductCardShop({ product }: { product: Product }) {
 
           {/* Discount Badge */}
           {product.discount > 0 && (
-            <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-sm bg-[#EF4444] text-white text-[11px] font-mono font-bold tracking-wider">
+            <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-xl bg-[#EF4444] text-white text-[11px] font-semibold tracking-wide">
               -{product.discount}%
             </div>
           )}
@@ -67,26 +67,26 @@ export function ProductCardShop({ product }: { product: Product }) {
         {/* Content Area */}
         <div className="p-4">
           {/* Brand */}
-          <p className="text-[11px] font-mono font-semibold tracking-widest uppercase text-[#0096D6] mb-1">
+          <p className="text-[11px] font-semibold tracking-wide uppercase text-sky-500 mb-1">
             {product.brand}
           </p>
 
           {/* Product Name */}
-          <h3 className="text-sm font-semibold text-[#0a0a0a] leading-snug mb-3 line-clamp-2 font-mono">
+          <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-3 line-clamp-2">
             {product.name}
           </h3>
 
           {/* Key Specs */}
           <div className="flex flex-wrap gap-1.5 mb-3">
-            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 px-2 py-1 rounded-sm">
+            <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 bg-slate-50 px-2 py-1 rounded-xl">
               <Cpu className="w-3 h-3" />
               {product.processor.split(" ").slice(0, 3).join(" ")}
             </span>
-            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 px-2 py-1 rounded-sm">
+            <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 bg-slate-50 px-2 py-1 rounded-xl">
               <MemoryStick className="w-3 h-3" />
               {product.ram.split(" ")[0]}
             </span>
-            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 px-2 py-1 rounded-sm">
+            <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 bg-slate-50 px-2 py-1 rounded-xl">
               <HardDrive className="w-3 h-3" />
               {product.storage.split(" ")[0]}
             </span>
@@ -94,10 +94,10 @@ export function ProductCardShop({ product }: { product: Product }) {
 
           {/* Price */}
           <div className="flex items-baseline gap-2 mb-3">
-            <span className="text-lg font-bold text-[#0a0a0a] font-mono">
+            <span className="text-lg font-bold text-gray-900 font-mono">
               ${product.refurbishedPrice}
             </span>
-            <span className="text-sm text-gray-400 line-through font-mono">
+            <span className="text-sm text-slate-400 line-through font-mono">
               ${product.originalPrice}
             </span>
           </div>
@@ -110,10 +110,10 @@ export function ProductCardShop({ product }: { product: Product }) {
               e.stopPropagation();
               addItem(product);
             }}
-            className={`w-full rounded-sm font-mono text-xs tracking-wider font-semibold h-9 ${
+            className={`w-full rounded-xl font-semibold text-xs tracking-wide h-9 ${
               product.inStock
-                ? "bg-[#0096D6] hover:bg-[#0078AE] text-white"
-                : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                ? "bg-sky-500 hover:bg-sky-600 text-white btn-primary-highlight"
+                : "bg-slate-100 text-slate-400 cursor-not-allowed"
             }`}
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />

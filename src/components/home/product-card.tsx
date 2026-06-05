@@ -66,7 +66,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
         {/* Product name */}
         <Link href={`/shop`}>
-          <h3 className="text-sm font-semibold text-slate-800 leading-snug group-hover:text-sky-600 transition-colors line-clamp-2">
+          <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-sky-600 transition-colors line-clamp-2">
             {product.name}
           </h3>
         </Link>
@@ -93,7 +93,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
         {/* Price */}
         <div className="flex items-end gap-2 pt-1">
-          <span className="text-lg font-bold text-slate-800 font-mono">
+          <span className="text-lg font-bold text-gray-900 font-mono">
             ${product.refurbishedPrice}
           </span>
           <span className="text-sm text-slate-400 line-through font-mono">
@@ -112,7 +112,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         {/* Add to cart */}
         <Button
           onClick={handleAddToCart}
-          className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs rounded-xl h-9 transition-colors disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed"
+          className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs rounded-xl h-9 btn-primary-highlight disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed"
           disabled={!product.inStock}
         >
           <ShoppingCart className="w-3.5 h-3.5 mr-2" />

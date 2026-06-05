@@ -142,7 +142,7 @@ export function DesktopHome() {
               </div>
 
               {/* Heading */}
-              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-slate-800 leading-[1.1] mt-6">
+              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1] mt-6">
                 Give Tech a
                 <br />
                 <span className="text-sky-500">Second Life</span>
@@ -158,7 +158,7 @@ export function DesktopHome() {
               {/* CTA buttons */}
               <div className="flex gap-4 mt-8">
                 <Link href="/shop">
-                  <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-8 transition-colors">
+                  <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-8 btn-primary-highlight">
                     Shop Now
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -166,7 +166,7 @@ export function DesktopHome() {
                 <Link href="/#about">
                   <Button
                     variant="outline"
-                    className="border border-slate-200 text-slate-600 hover:border-sky-300 hover:text-sky-600 font-semibold rounded-xl h-12 px-6 transition-colors"
+                    className="border border-slate-200 text-slate-600 hover:border-sky-300 hover:text-sky-600 font-semibold rounded-xl h-12 px-6 btn-outline-highlight"
                   >
                     Learn More
                   </Button>
@@ -227,7 +227,7 @@ export function DesktopHome() {
             <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               Browse by Category
             </span>
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl font-bold text-gray-900 tracking-tight mt-1">
               Find Your Perfect Laptop
             </h2>
           </div>
@@ -239,10 +239,10 @@ export function DesktopHome() {
               return (
                 <Link key={category.name} href="/shop">
                   <div
-                    className={`${category.bgColor} ${category.hoverBg} rounded-xl p-6 text-center cursor-pointer transition-all hover:shadow-md border border-transparent ${category.hoverBorder}`}
+                    className={`${category.bgColor} ${category.hoverBg} rounded-xl p-6 text-center cursor-pointer transition-all hover:shadow-md border border-transparent ${category.hoverBorder} btn-nav-highlight`}
                   >
                     <Icon className={`w-10 h-10 mx-auto mb-3 ${category.iconColor}`} />
-                    <h3 className="text-sm font-semibold text-slate-800">{category.name}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900">{category.name}</h3>
                     <p className="text-xs text-slate-500 mt-1">{category.subtitle}</p>
                   </div>
                 </Link>
@@ -261,13 +261,13 @@ export function DesktopHome() {
               <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
                 Featured Collection
               </span>
-              <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+              <h2 className="text-2xl font-bold text-gray-900 tracking-tight mt-1">
                 Top Picks
               </h2>
             </div>
             <Link
               href="/shop"
-              className="text-sm text-sky-500 hover:text-sky-600 font-medium flex items-center gap-1 transition-colors"
+              className="text-sm text-sky-500 hover:text-sky-600 font-medium flex items-center gap-1 btn-nav-highlight"
             >
               View All
               <ArrowRight className="w-4 h-4" />
@@ -291,7 +291,7 @@ export function DesktopHome() {
             <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               The ReBoot Advantage
             </span>
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl font-bold text-gray-900 tracking-tight mt-1">
               Why Refurbished?
             </h2>
           </div>
@@ -303,7 +303,7 @@ export function DesktopHome() {
               <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
                 <Recycle className="w-7 h-7 text-emerald-500" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-800 mb-3">Eco-Friendly</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Eco-Friendly</h3>
               <p className="text-sm text-slate-500 leading-relaxed">
                 Every refurbished laptop prevents ~300kg of CO₂ emissions. Join the
                 circular economy and reduce e-waste while saving money.
@@ -320,7 +320,7 @@ export function DesktopHome() {
               <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
                 <ShieldCheck className="w-7 h-7 text-sky-500" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-800 mb-3">Quality Tested</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Quality Tested</h3>
               <p className="text-sm text-slate-500 leading-relaxed">
                 Every laptop undergoes a rigorous 52-point inspection process. We test
                 performance, display, keyboard, ports, and battery life.
@@ -337,7 +337,7 @@ export function DesktopHome() {
               <div className="w-14 h-14 rounded-xl bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
                 <Award className="w-7 h-7 text-amber-500" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-800 mb-3">Warranty Backed</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Warranty Backed</h3>
               <p className="text-sm text-slate-500 leading-relaxed">
                 Every purchase includes a minimum 3-month warranty, with up to 12-month
                 coverage on premium grade laptops. Shop with confidence.
@@ -358,7 +358,7 @@ export function DesktopHome() {
           <div className="grid grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-slate-800 tracking-tight">
+                <div className="text-4xl font-bold text-gray-900 tracking-tight">
                   {stat.value}
                 </div>
                 <div className="text-sm text-slate-500 mt-2">{stat.label}</div>
@@ -376,7 +376,7 @@ export function DesktopHome() {
             <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               Simple Process
             </span>
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl font-bold text-gray-900 tracking-tight mt-1">
               How It Works
             </h2>
           </div>
@@ -403,7 +403,7 @@ export function DesktopHome() {
                   <Icon className="w-12 h-12 text-slate-400 mx-auto mb-4" />
 
                   {/* Title */}
-                  <h3 className="text-base font-semibold text-slate-800 mb-2">
+                  <h3 className="text-base font-semibold text-gray-900 mb-2">
                     {step.title}
                   </h3>
 
@@ -426,7 +426,7 @@ export function DesktopHome() {
             <span className="text-xs text-sky-500 font-medium uppercase tracking-wider">
               Customer Reviews
             </span>
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl font-bold text-gray-900 tracking-tight mt-1">
               What Our Customers Say
             </h2>
           </div>
@@ -461,7 +461,7 @@ export function DesktopHome() {
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-800">
+                    <div className="text-sm font-semibold text-gray-900">
                       {testimonial.name}
                     </div>
                     <div className="text-xs text-slate-400">{testimonial.role}</div>
@@ -483,7 +483,7 @@ export function DesktopHome() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 tracking-tight mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-4">
             Start Shopping Smarter Today
           </h2>
 
@@ -495,7 +495,7 @@ export function DesktopHome() {
 
           {/* CTA Button */}
           <Link href="/shop">
-            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-10 shadow-lg shadow-sky-500/20 transition-colors">
+            <Button className="bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl h-12 px-10 shadow-lg shadow-sky-500/20 btn-primary-highlight">
               Browse All Laptops
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
