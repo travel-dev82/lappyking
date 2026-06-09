@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, Menu, Laptop, LogOut, LayoutDashboard } from "lucide-react";
+import { ShoppingCart, Menu, Laptop, LogOut, LayoutDashboard, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/lib/cart-store";
+import { useWishlistStore } from "@/lib/wishlist-store";
 import { useAuth } from "@/lib/auth-context";
 import { useState } from "react";
 
@@ -19,6 +20,7 @@ const navLinks = [
 export function DesktopHeader() {
   const pathname = usePathname();
   const totalItems = useCartStore((s) => s.getTotalItems());
+  const wishlistCount = useWishlistStore((s) => s.getTotalItems());
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
@@ -54,8 +56,22 @@ export function DesktopHeader() {
           </nav>
         </div>
 
-        {/* Right section: Cart + Auth */}
-        <div className="flex items-center gap-5">
+        {/* Right section: Wishlist + Cart + Auth */}
+        <div className="flex items-center gap-4">
+          {/* Wishlist */}
+          <Link
+            href="/wishlist"
+            className="relative p-2 text-slate-500 hover:text-rose-500 transition-colors rounded-lg hover:bg-rose-50"
+          >
+            <Heart className="w-5 h-5" />
+            {wishlistCount > 0 && (
+              <Badge className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1.5 flex items-center justify-center text-[10px] font-semibold bg-rose-500 text-white border-0 rounded-full">
+                {wishlistCount}
+              </Badge>
+            )}
+          </Link>
+
+          {/* Cart */}
           <Link
             href="/cart"
             className="relative p-2 text-slate-500 hover:text-sky-600 transition-colors rounded-lg hover:bg-sky-50"
@@ -108,6 +124,7 @@ export function DesktopHeader() {
 export function MobileHeader() {
   const pathname = usePathname();
   const totalItems = useCartStore((s) => s.getTotalItems());
+  const wishlistCount = useWishlistStore((s) => s.getTotalItems());
   const { isAuthenticated, user, logout } = useAuth();
   const [open, setOpen] = useState(false);
 
@@ -123,8 +140,20 @@ export function MobileHeader() {
           </span>
         </Link>
 
-        {/* Cart + Hamburger */}
-        <div className="flex items-center gap-1">
+        {/* Wishlist + Cart + Hamburger */}
+        <div className="flex items-center gap-0.5">
+          <Link
+            href="/wishlist"
+            className="relative p-2 text-slate-500 hover:text-rose-500 transition-colors rounded-lg hover:bg-rose-50"
+          >
+            <Heart className="w-5 h-5" />
+            {wishlistCount > 0 && (
+              <Badge className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 flex items-center justify-center text-[9px] font-semibold bg-rose-500 text-white border-0 rounded-full">
+                {wishlistCount}
+              </Badge>
+            )}
+          </Link>
+
           <Link
             href="/cart"
             className="relative p-2 text-slate-500 hover:text-sky-600 transition-colors rounded-lg hover:bg-sky-50"
@@ -176,6 +205,27 @@ export function MobileHeader() {
                       </Link>
                     );
                   })}
+
+                  {/* Wishlist link in mobile nav */}
+                  <Link
+                    href="/wishlist"
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between px-6 py-3 text-sm font-medium rounded-xl mx-3 btn-nav-highlight ${
+                      pathname === "/wishlist"
+                        ? "btn-nav-highlight-active text-rose-600 bg-rose-50 font-semibold"
+                        : "text-slate-600"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Heart className={`w-4 h-4 ${pathname === "/wishlist" ? "fill-rose-500 text-rose-500" : ""}`} />
+                      Wishlist
+                    </div>
+                    {wishlistCount > 0 && (
+                      <Badge className="bg-rose-500 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full border-0">
+                        {wishlistCount}
+                      </Badge>
+                    )}
+                  </Link>
                 </nav>
 
                 {/* Auth Section */}

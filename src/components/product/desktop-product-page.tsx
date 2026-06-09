@@ -33,6 +33,7 @@ import {
   Package,
 } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
+import { useWishlistStore } from "@/lib/wishlist-store";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -52,8 +53,11 @@ const gradeLabels: Record<string, string> = {
 
 export function DesktopProductPage({ product }: { product: Product }) {
   const addItem = useCartStore((s) => s.addItem);
+  const toggleWishlist = useWishlistStore((s) => s.toggleItem);
+  const isInWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
   const { toast } = useToast();
   const [added, setAdded] = useState(false);
+  const wishlisted = isInWishlist;
 
   const handleAddToCart = () => {
     addItem(product);
@@ -71,6 +75,16 @@ export function DesktopProductPage({ product }: { product: Product }) {
     .slice(0, 4);
 
   const savings = product.originalPrice - product.refurbishedPrice;
+
+  const handleToggleWishlist = () => {
+    toggleWishlist(product);
+    toast({
+      title: wishlisted ? "Removed from Wishlist" : "Added to Wishlist!",
+      description: wishlisted
+        ? `${product.name} has been removed from your wishlist.`
+        : `${product.name} has been added to your wishlist.`,
+    });
+  };
 
   return (
     <div className="hidden lg:block">
@@ -260,9 +274,12 @@ export function DesktopProductPage({ product }: { product: Product }) {
               </Button>
               <Button
                 variant="outline"
-                className="h-12 px-4 rounded-xl border-slate-200 btn-outline-highlight"
+                onClick={handleToggleWishlist}
+                className={`h-12 px-4 rounded-xl border-slate-200 btn-outline-highlight transition-all ${
+                  wishlisted ? "border-rose-200 bg-rose-50 text-rose-500 hover:bg-rose-100" : ""
+                }`}
               >
-                <Heart className="w-4 h-4" />
+                <Heart className={`w-4 h-4 transition-colors ${wishlisted ? "fill-rose-500 text-rose-500" : ""}`} />
               </Button>
               <Button
                 variant="outline"

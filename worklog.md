@@ -52,3 +52,34 @@ Stage Summary:
 - Customer Reviews enhanced with product purchased tags
 - Product data enriched with rating/reviewCount/isHotDeal/isNew/isTopPick fields
 - All existing hover highlight and styling patterns preserved
+
+---
+Task ID: 1
+Agent: Main Agent
+Task: Add wishlist feature across the entire project with dedicated wishlist page
+
+Work Log:
+- Created Zustand wishlist store (`/src/lib/wishlist-store.ts`) with addItem, removeItem, toggleItem, isInWishlist, clearWishlist, getTotalItems — with localStorage persistence via zustand/middleware persist
+- Added localStorage persistence to both wishlist and cart stores using createJSONStorage for consistent behavior
+- Updated home ProductCard component with wishlist heart button (top-right of product image area) with filled/unfilled heart states and rose-500 color
+- Updated shop ProductCardShop component with wishlist heart button in image area with proper z-index to avoid conflict with discount badge
+- Updated desktop product page with working wishlist toggle on Heart button — shows filled rose heart when wishlisted with rose bg
+- Updated mobile product page with same wishlist toggle behavior
+- Created dedicated /wishlist page with DesktopWishlist and MobileWishlist components
+- Desktop wishlist: 3-column grid with product cards, Move to Cart button, Remove button, Clear All, savings calculation
+- Mobile wishlist: Compact card layout with image + details, Move to Cart, remove heart button, Clear All
+- Empty state for both: heart icon, "Your Wishlist is Empty" message, Explore Laptops CTA
+- Updated header (desktop & mobile) with wishlist Heart icon + count badge (rose-500)
+- Added wishlist link in mobile Sheet navigation with heart icon and count badge
+- All wishlist buttons show toast notifications on toggle (add/remove)
+- Wishlist data persists across page navigations via localStorage
+- ESLint passes with zero errors
+- Agent Browser verified: wishlist buttons work, localStorage persists, /wishlist page shows items with "Move to Cart" and "Clear All"
+
+Stage Summary:
+- Full wishlist feature implemented across all product display locations (home, shop, product detail)
+- Dedicated /wishlist page with desktop (3-col grid) and mobile (compact cards) views
+- Zustand store with localStorage persistence for both wishlist and cart
+- Heart icon with count badge in header navigation
+- Toast notifications for all wishlist actions
+- "Move to Cart" functionality on wishlist page

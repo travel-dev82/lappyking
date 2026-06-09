@@ -3,8 +3,9 @@
 import { Product } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, ShieldCheck, Flame, Sparkles, CheckCircle } from "lucide-react";
+import { ShoppingCart, Star, ShieldCheck, Flame, Sparkles, CheckCircle, Heart } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
+import { useWishlistStore } from "@/lib/wishlist-store";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,8 +44,11 @@ function StarRating({ rating, reviewCount }: { rating: number; reviewCount: numb
 
 export function ProductCard({ product, variant = "default", onAddToCart }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
+  const toggleWishlist = useWishlistStore((s) => s.toggleItem);
+  const isInWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
   const { toast } = useToast();
   const [added, setAdded] = useState(false);
+  const wishlisted = isInWishlist;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -59,22 +63,31 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
     onAddToCart?.();
   };
 
+  const handleToggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(product);
+    toast({
+      title: wishlisted ? "Removed from Wishlist" : "Added to Wishlist!",
+      description: wishlisted
+        ? `${product.name} has been removed from your wishlist.`
+        : `${product.name} has been added to your wishlist.`,
+    });
+  };
+
   return (
     <div className="group relative bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden product-card-hover">
       {/* Badges row */}
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
-        {/* Discount badge */}
         <Badge className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg border-0">
           -{product.discount}%
         </Badge>
-        {/* Hot deal badge */}
         {variant === "hot" && (
           <Badge className="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border-0 flex items-center gap-1">
             <Flame className="w-2.5 h-2.5" />
             HOT DEAL
           </Badge>
         )}
-        {/* New arrival badge */}
         {variant === "new" && (
           <Badge className="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border-0 flex items-center gap-1">
             <Sparkles className="w-2.5 h-2.5" />
@@ -82,6 +95,19 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
           </Badge>
         )}
       </div>
+
+      {/* Wishlist heart button */}
+      <button
+        onClick={handleToggleWishlist}
+        className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center transition-all hover:scale-110 hover:shadow-md"
+        aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+      >
+        <Heart
+          className={`w-4 h-4 transition-colors ${
+            wishlisted ? "fill-rose-500 text-rose-500" : "text-slate-400 hover:text-rose-400"
+          }`}
+        />
+      </button>
 
       {/* Product image */}
       <Link href={`/product/${product.id}`}>
@@ -98,7 +124,6 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
 
       {/* Content */}
       <div className="p-4 space-y-3">
-        {/* Brand & Grade */}
         <div className="flex items-center justify-between">
           <span className="text-xs text-slate-400 uppercase tracking-wider">
             {product.brand}
@@ -110,24 +135,20 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
           </Badge>
         </div>
 
-        {/* Product name */}
         <Link href={`/product/${product.id}`}>
           <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-sky-600 transition-colors line-clamp-2">
             {product.name}
           </h3>
         </Link>
 
-        {/* Key specs */}
         <div className="flex items-center gap-2 text-xs text-slate-400">
           <span>{product.processor.split(" ").slice(0, 3).join(" ")}</span>
           <span className="text-slate-300">|</span>
           <span>{product.ram}</span>
         </div>
 
-        {/* Rating stars */}
         <StarRating rating={product.rating} reviewCount={product.reviewCount} />
 
-        {/* Price */}
         <div className="flex items-end gap-2 pt-1">
           <span className="text-lg font-bold text-gray-900">
             ${product.refurbishedPrice}
@@ -137,7 +158,6 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
           </span>
         </div>
 
-        {/* Warranty badge */}
         <div className="flex items-center gap-1">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
           <span className="text-[10px] text-emerald-600">
@@ -145,7 +165,6 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
           </span>
         </div>
 
-        {/* Add to cart */}
         <Button
           onClick={handleAddToCart}
           disabled={!product.inStock || added}

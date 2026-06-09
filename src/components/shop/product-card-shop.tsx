@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Cpu, MemoryStick, HardDrive, CheckCircle } from "lucide-react";
+import { ShoppingCart, Cpu, MemoryStick, HardDrive, CheckCircle, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/lib/cart-store";
+import { useWishlistStore } from "@/lib/wishlist-store";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import { useState } from "react";
@@ -19,8 +20,11 @@ const conditionColors: Record<string, string> = {
 
 export function ProductCardShop({ product }: { product: Product }) {
   const addItem = useCartStore((s) => s.addItem);
+  const toggleWishlist = useWishlistStore((s) => s.toggleItem);
+  const isInWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
   const { toast } = useToast();
   const [added, setAdded] = useState(false);
+  const wishlisted = isInWishlist;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,6 +36,18 @@ export function ProductCardShop({ product }: { product: Product }) {
       description: `${product.name} has been added to your cart.`,
     });
     setTimeout(() => setAdded(false), 2000);
+  };
+
+  const handleToggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(product);
+    toast({
+      title: wishlisted ? "Removed from Wishlist" : "Added to Wishlist!",
+      description: wishlisted
+        ? `${product.name} has been removed from your wishlist.`
+        : `${product.name} has been added to your wishlist.`,
+    });
   };
 
   return (
@@ -58,10 +74,23 @@ export function ProductCardShop({ product }: { product: Product }) {
 
           {/* Discount Badge */}
           {product.discount > 0 && (
-            <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-xl bg-[#EF4444] text-white text-[11px] font-semibold tracking-wide">
+            <div className="absolute top-3 right-10 z-10 px-2 py-1 rounded-xl bg-[#EF4444] text-white text-[11px] font-semibold tracking-wide">
               -{product.discount}%
             </div>
           )}
+
+          {/* Wishlist Heart */}
+          <button
+            onClick={handleToggleWishlist}
+            className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center transition-all hover:scale-110 hover:shadow-md"
+            aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+          >
+            <Heart
+              className={`w-3.5 h-3.5 transition-colors ${
+                wishlisted ? "fill-rose-500 text-rose-500" : "text-slate-400 hover:text-rose-400"
+              }`}
+            />
+          </button>
 
           {/* Product Image */}
           <Image
@@ -75,17 +104,14 @@ export function ProductCardShop({ product }: { product: Product }) {
 
         {/* Content Area */}
         <div className="p-4">
-          {/* Brand */}
           <p className="text-[11px] font-semibold tracking-wide uppercase text-sky-500 mb-1">
             {product.brand}
           </p>
 
-          {/* Product Name */}
           <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-3 line-clamp-2 group-hover:text-sky-600 transition-colors">
             {product.name}
           </h3>
 
-          {/* Key Specs */}
           <div className="flex flex-wrap gap-1.5 mb-3">
             <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 bg-slate-50 px-2 py-1 rounded-xl">
               <Cpu className="w-3 h-3" />
@@ -101,7 +127,6 @@ export function ProductCardShop({ product }: { product: Product }) {
             </span>
           </div>
 
-          {/* Price */}
           <div className="flex items-baseline gap-2 mb-3">
             <span className="text-lg font-bold text-gray-900 font-mono">
               ${product.refurbishedPrice}
@@ -111,7 +136,6 @@ export function ProductCardShop({ product }: { product: Product }) {
             </span>
           </div>
 
-          {/* Add to Cart Button */}
           <Button
             disabled={!product.inStock || added}
             onClick={handleAddToCart}
