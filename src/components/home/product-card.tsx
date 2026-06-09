@@ -3,13 +3,14 @@
 import { Product } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, ShieldCheck } from "lucide-react";
+import { ShoppingCart, Star, ShieldCheck, Flame, Sparkles } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
 import Link from "next/link";
 import Image from "next/image";
 
 interface ProductCardProps {
   product: Product;
+  variant?: "default" | "hot" | "new" | "top";
   onAddToCart?: () => void;
 }
 
@@ -20,7 +21,25 @@ const gradeColors: Record<string, string> = {
   B: "bg-red-500 text-white",
 };
 
-export function ProductCard({ product, onAddToCart }: ProductCardProps) {
+function StarRating({ rating, reviewCount }: { rating: number; reviewCount: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <Star
+          key={star}
+          className={`w-3 h-3 ${
+            star <= Math.round(rating) ? "fill-amber-400 text-amber-400" : "fill-slate-200 text-slate-200"
+          }`}
+        />
+      ))}
+      <span className="text-[10px] text-slate-400 ml-1">
+        ({rating.toFixed(1)}) {reviewCount > 0 && `· ${reviewCount}`}
+      </span>
+    </div>
+  );
+}
+
+export function ProductCard({ product, variant = "default", onAddToCart }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
 
   const handleAddToCart = () => {
@@ -30,11 +49,26 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
   return (
     <div className="group relative bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden product-card-hover">
-      {/* Discount badge */}
-      <div className="absolute top-3 left-3 z-10">
+      {/* Badges row */}
+      <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
+        {/* Discount badge */}
         <Badge className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg border-0">
           -{product.discount}%
         </Badge>
+        {/* Hot deal badge */}
+        {variant === "hot" && (
+          <Badge className="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border-0 flex items-center gap-1">
+            <Flame className="w-2.5 h-2.5" />
+            HOT DEAL
+          </Badge>
+        )}
+        {/* New arrival badge */}
+        {variant === "new" && (
+          <Badge className="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md border-0 flex items-center gap-1">
+            <Sparkles className="w-2.5 h-2.5" />
+            NEW
+          </Badge>
+        )}
       </div>
 
       {/* Product image */}
@@ -73,30 +107,20 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
         {/* Key specs */}
         <div className="flex items-center gap-2 text-xs text-slate-400">
-          <span className="font-mono">{product.processor.split(" ").slice(0, 3).join(" ")}</span>
+          <span>{product.processor.split(" ").slice(0, 3).join(" ")}</span>
           <span className="text-slate-300">|</span>
-          <span className="font-mono">{product.ram}</span>
+          <span>{product.ram}</span>
         </div>
 
         {/* Rating stars */}
-        <div className="flex items-center gap-1">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <Star
-              key={star}
-              className={`w-3 h-3 ${
-                star <= 4 ? "fill-amber-400 text-amber-400" : "fill-slate-200 text-slate-200"
-              }`}
-            />
-          ))}
-          <span className="text-[10px] text-slate-400 ml-1">(4.0)</span>
-        </div>
+        <StarRating rating={product.rating} reviewCount={product.reviewCount} />
 
         {/* Price */}
         <div className="flex items-end gap-2 pt-1">
-          <span className="text-lg font-bold text-gray-900 font-mono">
+          <span className="text-lg font-bold text-gray-900">
             ${product.refurbishedPrice}
           </span>
-          <span className="text-sm text-slate-400 line-through font-mono">
+          <span className="text-sm text-slate-400 line-through">
             ${product.originalPrice}
           </span>
         </div>

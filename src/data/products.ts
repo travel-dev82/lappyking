@@ -16,6 +16,11 @@ export interface Product {
   inStock: boolean;
   warranty: string;
   description: string;
+  rating: number;
+  reviewCount: number;
+  isHotDeal: boolean;
+  isNew: boolean;
+  isTopPick: boolean;
 }
 
 export const products: Product[] = [
@@ -36,7 +41,12 @@ export const products: Product[] = [
     category: "Business",
     inStock: true,
     warranty: "12 Months",
-    description: "Premium ultrabook in excellent condition. Lightweight carbon fiber chassis with outstanding keyboard."
+    description: "Premium ultrabook in excellent condition. Lightweight carbon fiber chassis with outstanding keyboard.",
+    rating: 4.8,
+    reviewCount: 234,
+    isHotDeal: true,
+    isNew: false,
+    isTopPick: true,
   },
   {
     id: "2",
@@ -55,7 +65,12 @@ export const products: Product[] = [
     category: "Premium",
     inStock: true,
     warranty: "6 Months",
-    description: "Apple Silicon powerhouse with incredible battery life. Perfect for creative professionals."
+    description: "Apple Silicon powerhouse with incredible battery life. Perfect for creative professionals.",
+    rating: 4.9,
+    reviewCount: 412,
+    isHotDeal: false,
+    isNew: false,
+    isTopPick: true,
   },
   {
     id: "3",
@@ -74,7 +89,12 @@ export const products: Product[] = [
     category: "Business",
     inStock: true,
     warranty: "12 Months",
-    description: "Reliable business laptop with excellent build quality. Ideal for office and remote work."
+    description: "Reliable business laptop with excellent build quality. Ideal for office and remote work.",
+    rating: 4.5,
+    reviewCount: 189,
+    isHotDeal: true,
+    isNew: false,
+    isTopPick: true,
   },
   {
     id: "4",
@@ -93,7 +113,12 @@ export const products: Product[] = [
     category: "Business",
     inStock: true,
     warranty: "12 Months",
-    description: "Enterprise-grade security features with premium aluminum chassis. MIL-STD tested."
+    description: "Enterprise-grade security features with premium aluminum chassis. MIL-STD tested.",
+    rating: 4.7,
+    reviewCount: 156,
+    isHotDeal: true,
+    isNew: false,
+    isTopPick: true,
   },
   {
     id: "5",
@@ -112,7 +137,12 @@ export const products: Product[] = [
     category: "Premium",
     inStock: true,
     warranty: "6 Months",
-    description: "Stunning PixelSense touchscreen with Alcantara keyboard. Perfect for creative work."
+    description: "Stunning PixelSense touchscreen with Alcantara keyboard. Perfect for creative work.",
+    rating: 4.3,
+    reviewCount: 98,
+    isHotDeal: false,
+    isNew: true,
+    isTopPick: false,
   },
   {
     id: "6",
@@ -131,7 +161,12 @@ export const products: Product[] = [
     category: "Ultrabook",
     inStock: true,
     warranty: "12 Months",
-    description: "Fanless design with all-day battery life. The most popular refurbished MacBook."
+    description: "Fanless design with all-day battery life. The most popular refurbished MacBook.",
+    rating: 4.9,
+    reviewCount: 567,
+    isHotDeal: false,
+    isNew: false,
+    isTopPick: true,
   },
   {
     id: "7",
@@ -150,7 +185,12 @@ export const products: Product[] = [
     category: "Business",
     inStock: true,
     warranty: "12 Months",
-    description: "The workhorse of business laptops. Legendary ThinkPad keyboard with TrackPoint."
+    description: "The workhorse of business laptops. Legendary ThinkPad keyboard with TrackPoint.",
+    rating: 4.6,
+    reviewCount: 203,
+    isHotDeal: true,
+    isNew: true,
+    isTopPick: false,
   },
   {
     id: "8",
@@ -169,7 +209,12 @@ export const products: Product[] = [
     category: "Premium",
     inStock: true,
     warranty: "6 Months",
-    description: "Stunning OLED display in an ultra-thin design. NumberPad 2.0 for enhanced productivity."
+    description: "Stunning OLED display in an ultra-thin design. NumberPad 2.0 for enhanced productivity.",
+    rating: 4.4,
+    reviewCount: 124,
+    isHotDeal: false,
+    isNew: true,
+    isTopPick: false,
   },
   {
     id: "9",
@@ -188,7 +233,12 @@ export const products: Product[] = [
     category: "Premium",
     inStock: false,
     warranty: "12 Months",
-    description: "Iconic InfinityEdge display with premium build. One of the best Windows ultrabooks."
+    description: "Iconic InfinityEdge display with premium build. One of the best Windows ultrabooks.",
+    rating: 4.7,
+    reviewCount: 321,
+    isHotDeal: false,
+    isNew: true,
+    isTopPick: true,
   },
   {
     id: "10",
@@ -207,7 +257,12 @@ export const products: Product[] = [
     category: "Budget",
     inStock: true,
     warranty: "6 Months",
-    description: "Affordable business laptop with essential features. Great value for everyday computing."
+    description: "Affordable business laptop with essential features. Great value for everyday computing.",
+    rating: 4.2,
+    reviewCount: 87,
+    isHotDeal: true,
+    isNew: false,
+    isTopPick: false,
   },
   {
     id: "11",
@@ -226,7 +281,12 @@ export const products: Product[] = [
     category: "Budget",
     inStock: true,
     warranty: "6 Months",
-    description: "Lightweight and powerful with AMD Ryzen. Excellent battery life at a budget price."
+    description: "Lightweight and powerful with AMD Ryzen. Excellent battery life at a budget price.",
+    rating: 4.1,
+    reviewCount: 65,
+    isHotDeal: true,
+    isNew: true,
+    isTopPick: false,
   },
   {
     id: "12",
@@ -245,8 +305,13 @@ export const products: Product[] = [
     category: "Budget",
     inStock: true,
     warranty: "3 Months",
-    description: "Budget-friendly everyday laptop. Perfect for students and basic computing needs."
-  }
+    description: "Budget-friendly everyday laptop. Perfect for students and basic computing needs.",
+    rating: 3.9,
+    reviewCount: 143,
+    isHotDeal: true,
+    isNew: false,
+    isTopPick: false,
+  },
 ];
 
 export const categories = ["All", "Business", "Premium", "Ultrabook", "Budget"];
