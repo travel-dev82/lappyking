@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Cpu, MemoryStick, HardDrive } from "lucide-react";
+import { ShoppingCart, Cpu, MemoryStick, HardDrive, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/lib/cart-store";
+import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
+import { useState } from "react";
 
 const conditionColors: Record<string, string> = {
   "A+": "#10B981",
@@ -15,18 +17,25 @@ const conditionColors: Record<string, string> = {
   B: "#EF4444",
 };
 
-const conditionBgColors: Record<string, string> = {
-  "A+": "bg-emerald-500",
-  A: "bg-sky-500",
-  "B+": "bg-amber-500",
-  B: "bg-red-500",
-};
-
 export function ProductCardShop({ product }: { product: Product }) {
   const addItem = useCartStore((s) => s.addItem);
+  const { toast } = useToast();
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem(product);
+    setAdded(true);
+    toast({
+      title: "Added to Cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
+    setTimeout(() => setAdded(false), 2000);
+  };
 
   return (
-    <Link href="#" className="group block">
+    <Link href={`/product/${product.id}`} className="group block">
       <div className="relative rounded-xl border border-slate-200 bg-white overflow-hidden transition transform hover:-translate-y-1 hover:shadow-md">
         {/* Out of Stock Overlay */}
         {!product.inStock && (
@@ -72,7 +81,7 @@ export function ProductCardShop({ product }: { product: Product }) {
           </p>
 
           {/* Product Name */}
-          <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-3 line-clamp-2">
+          <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-3 line-clamp-2 group-hover:text-sky-600 transition-colors">
             {product.name}
           </h3>
 
@@ -104,20 +113,27 @@ export function ProductCardShop({ product }: { product: Product }) {
 
           {/* Add to Cart Button */}
           <Button
-            disabled={!product.inStock}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              addItem(product);
-            }}
-            className={`w-full rounded-xl font-semibold text-xs tracking-wide h-9 ${
-              product.inStock
+            disabled={!product.inStock || added}
+            onClick={handleAddToCart}
+            className={`w-full rounded-xl font-semibold text-xs tracking-wide h-9 transition-all ${
+              added
+                ? "bg-emerald-500 hover:bg-emerald-500 text-white"
+                : product.inStock
                 ? "bg-sky-500 hover:bg-sky-600 text-white btn-primary-highlight"
                 : "bg-slate-100 text-slate-400 cursor-not-allowed"
             }`}
           >
-            <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
-            {product.inStock ? "ADD TO CART" : "SOLD OUT"}
+            {added ? (
+              <>
+                <CheckCircle className="w-3.5 h-3.5 mr-1.5" />
+                ADDED!
+              </>
+            ) : (
+              <>
+                <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
+                {product.inStock ? "ADD TO CART" : "SOLD OUT"}
+              </>
+            )}
           </Button>
         </div>
       </div>

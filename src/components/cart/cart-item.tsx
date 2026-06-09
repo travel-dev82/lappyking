@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Minus, Plus, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CartItem } from "@/lib/cart-store";
@@ -47,9 +48,11 @@ export function CartItemRow({
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <h3 className={`font-mono font-semibold leading-tight truncate ${compact ? "text-sm" : "text-base"}`}>
-              {product.name}
-            </h3>
+            <Link href={`/product/${product.id}`} className="hover:text-sky-600 transition-colors">
+              <h3 className={`font-mono font-semibold leading-tight truncate ${compact ? "text-sm" : "text-base"}`}>
+                {product.name}
+              </h3>
+            </Link>
             <div className="flex items-center gap-2 mt-1">
               <span className="text-xs text-slate-500 uppercase tracking-wider">{product.brand}</span>
               <Badge

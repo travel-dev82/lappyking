@@ -3,10 +3,12 @@
 import { Product } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, ShieldCheck, Flame, Sparkles } from "lucide-react";
+import { ShoppingCart, Star, ShieldCheck, Flame, Sparkles, CheckCircle } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
+import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 interface ProductCardProps {
   product: Product;
@@ -41,9 +43,19 @@ function StarRating({ rating, reviewCount }: { rating: number; reviewCount: numb
 
 export function ProductCard({ product, variant = "default", onAddToCart }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
+  const { toast } = useToast();
+  const [added, setAdded] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     addItem(product);
+    setAdded(true);
+    toast({
+      title: "Added to Cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
+    setTimeout(() => setAdded(false), 2000);
     onAddToCart?.();
   };
 
@@ -72,7 +84,7 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
       </div>
 
       {/* Product image */}
-      <Link href={`/shop`}>
+      <Link href={`/product/${product.id}`}>
         <div className="relative aspect-[4/3] bg-gradient-to-b from-slate-50 to-white overflow-hidden flex items-center justify-center p-6">
           <Image
             src={product.image}
@@ -99,7 +111,7 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
         </div>
 
         {/* Product name */}
-        <Link href={`/shop`}>
+        <Link href={`/product/${product.id}`}>
           <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-sky-600 transition-colors line-clamp-2">
             {product.name}
           </h3>
@@ -136,11 +148,26 @@ export function ProductCard({ product, variant = "default", onAddToCart }: Produ
         {/* Add to cart */}
         <Button
           onClick={handleAddToCart}
-          className="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs rounded-xl h-9 btn-primary-highlight disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed"
-          disabled={!product.inStock}
+          disabled={!product.inStock || added}
+          className={`w-full font-semibold text-xs rounded-xl h-9 transition-all ${
+            added
+              ? "bg-emerald-500 hover:bg-emerald-500 text-white"
+              : product.inStock
+              ? "bg-sky-500 hover:bg-sky-600 text-white btn-primary-highlight"
+              : "bg-slate-100 text-slate-400 cursor-not-allowed"
+          }`}
         >
-          <ShoppingCart className="w-3.5 h-3.5 mr-2" />
-          {product.inStock ? "Add to Cart" : "Out of Stock"}
+          {added ? (
+            <>
+              <CheckCircle className="w-3.5 h-3.5 mr-2" />
+              Added to Cart!
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="w-3.5 h-3.5 mr-2" />
+              {product.inStock ? "Add to Cart" : "Out of Stock"}
+            </>
+          )}
         </Button>
       </div>
     </div>

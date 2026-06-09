@@ -102,9 +102,11 @@ export function MobileCart() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-1">
                       <div className="min-w-0">
-                        <h3 className="text-sm font-mono font-semibold text-gray-900 leading-tight truncate">
-                          {product.name}
-                        </h3>
+                        <Link href={`/product/${product.id}`} className="hover:text-sky-600 transition-colors">
+                          <h3 className="text-sm font-mono font-semibold text-gray-900 leading-tight truncate">
+                            {product.name}
+                          </h3>
+                        </Link>
                         <div className="flex items-center gap-1.5 mt-0.5">
                           <span className="text-[10px] text-slate-500 uppercase tracking-wider">{product.brand}</span>
                           <Badge
